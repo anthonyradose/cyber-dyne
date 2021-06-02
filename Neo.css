@@ -3,10 +3,6 @@ body {
   font-family: "White Rabbit";
 }
 
-button {
-  background-color: white;
-}
-
 .not-done-container {
   display: flex;
   justify-content: space-between;

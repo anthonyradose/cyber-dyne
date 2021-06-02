@@ -1,74 +1,84 @@
 body {
-    background-color: black;
-    font-family: 'White Rabbit';
+  background-color: black;
+  font-family: "White Rabbit";
 }
 
 .container-1 {
-    display: flex;
-    justify-content: center;
-    border: 3px solid green;
-    margin: 50px 100px;
+  display: flex;
+  justify-content: center;
+  border: 3px solid green;
+  margin: 50px 100px;
 }
 
-.container-2  {
-    display: flex;
-    justify-content: center;
-    border: 3px solid blueviolet;
-    margin: 100px 100px;
+.container-2 {
+  display: flex;
+  justify-content: center;
+  border: 3px solid blueviolet;
+  margin: 100px 100px;
 }
 
 .container-3 {
-    display: flex;
-    border: 3px solid cyan;
-    justify-content: center;
-    margin-top: 50px;
-    margin-right: 100px;
-    margin-left: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  display: flex;
+  border: 3px solid cyan;
+  justify-content: center;
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .not-done {
-    color:rgb(255, 176, 0)
-
+  color: rgb(255, 176, 0);
 }
 
 .not-done-lis {
-    color: rgb(255, 176, 0);
-    margin: 10px;
+  color: rgb(255, 176, 0);
+  margin: 10px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: crimson;
-  }
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: crimson;
+}
 
 input {
-    background-color: darkgray;
-    color: crimson;
+  background-color: darkgray;
+  color: crimson;
 }
 
 button {
-    background-color: teal;
-    margin: 10px;
+  background-color: teal;
+  margin: 10px;
 }
 
 h1 {
-    color: rgb(255, 176, 0);
-    font-family: 'White Rabbit';
-    font-weight: 100;
-    text-align: center;
-    margin-top: 100px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-    align-self: center;
+  color: rgb(255, 176, 0);
+  font-family: "White Rabbit";
+  font-weight: 100;
+  text-align: center;
+  margin-top: 100px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  align-self: center;
 }
 
 h3 {
-    color:rgb(255, 176, 0);
-    margin-right: 470px;
-
+  color: rgb(255, 176, 0);
+  margin-right: 470px;
 }
 
-@font-face {font-family: "White Rabbit"; src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot"); src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff") format("woff"), url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.svg#White Rabbit") format("svg"); }
-
-
+@font-face {
+  font-family: "White Rabbit";
+  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot");
+  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.svg#White Rabbit")
+      format("svg");
+}

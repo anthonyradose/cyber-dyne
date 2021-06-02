@@ -1,46 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neo's Apartment</title>
-    <link rel="stylesheet" href="Neo.css">
-   
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neo's Apartment</title>
+  <link rel="stylesheet" href="Neo.css">
 </head>
+
 <body>
 
-    <div class="container-3">
-        <div id="new-task">
-        <input type="text" placeholder="New Task">
-        <button>Add Task</button>
-        </div>
+  <div class="container-3">
+    <div class="addTask">
+      <input type="text" placeholder="New Task">
+      <button id="yohans">Add Task</button>
     </div>
+  </div>
 
 
-    <div class="container-1">
-      <h1>NOT DONE:</h1>
-        <ul class="not-done">
-          <li class="not-done-lis">Surf The Net</li> 
-          <li class="not-done-lis">Order Pizza</li>
-          <li class="not-done-lis">Prepare for Y2K</li>
-          <li class="not-done-lis">Hack into...</li>
-          <li class="not-done-lis">Return VHS's to Blockbuster</li>
-          <li class="not-done-lis">Buy a Cellphone</li>
-          <li class="not-done-lis" id="X-Files">Record X-Files</li>
-        </ul>
-    </div>
+  <div class="container-1">
+    <h1>NOT DONE:</h1>
+    <ul class="not-done">
+      <li class="not-done-lis">Surf The Net</li>
+      <li class="not-done-lis">Order Pizza</li>
+      <li class="not-done-lis">Prepare for Y2K</li>
+      <li class="not-done-lis">Hack into...</li>
+      <li class="not-done-lis">Return VHS's to Blockbuster</li>
+      <li class="not-done-lis">Buy a Cellphone</li>
+      <li class="not-done-lis">Record X-Files</li>
+    </ul>
+  </div>
 
 
-    <footer>
-      <div class="container-2">
+  <footer>
+    <div class="container-2">
       <h3>DONE:</h3>
-        <ul>
+      <ul class="done">
 
-        </ul>
-      </div>
-    </footer>
+      </ul>
+    </div>
+  </footer>
 
+  <script>
+    console.log('YOHANS YALALALALALALALALALALALALALALALALALALALA');
+    const input = document.querySelector('input');
+    const btn = document.querySelector('.addTask > button');
+
+    btn.addEventListener('click', addList)
+
+    function addList(e) {
+      console.log('YOHANS YALALALALALALALALALALALALALALALALALALALA');
+      const notCompleted = document.querySelector('.not-done');
+      const completed = document.querySelector('.done');
+
+      const newLi = document.createElement('li');
+      const checkBtn = document.createElement('button');
+      const delBtn = document.createElement('button');
+
+      checkBtn.innerHTML = 'done'
+      delBtn.innerHTML = 'delete'
+
+      if (input.value !== '') {
+        newLi.textContent = input.value;
+        input.value = '';
+        notCompleted.appendChild(newLi);
+      }
+
+      checkBtn.addEventListener('click', function () {
+        const parent = this.parentNode;
+        parent.remove();
+      })
+
+    };
+
+  </script>
 </body>
+
 </html>

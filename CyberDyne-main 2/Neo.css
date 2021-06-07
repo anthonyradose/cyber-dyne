@@ -1,0 +1,122 @@
+@import url("//db.onlinewebfonts.com/c/9970a7c5a8076174bff0532c8013a547?family=Digital-7");
+
+body {
+  font-family: "White Rabbit";
+  background: url("/Users/anthonyradose/Downloads/christopher-farrugia-2yQtqBqzDRo-unsplash.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+body:before { /* black Overlay */
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7)
+}
+
+body * {
+  position: relative; /* Makes elements display above overlay. */
+}
+
+#clock {
+  color: crimson;
+}
+
+.not-done-container {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid green;
+  margin: 50px 100px;
+}
+
+.not-done-header {
+  display: flex;
+  justify-content: center;
+  /* flex-grow: 1; */
+  width: 50%;
+}
+
+.not-done {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  color: rgb(255, 176, 0);
+}
+
+.done-container {
+  display: flex;
+  justify-content: center;
+  border: 3px solid blueviolet;
+  margin: 50px 100px;
+}
+
+.add-task-container {
+  display: flex;
+  border: 3px solid cyan;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.done {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  color: rgb(255, 176, 0);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: crimson;
+}
+
+input {
+  background-color: rgb(0, 0, 0);
+  color: crimson;
+  font-family: "White Rabbit";
+}
+
+button {
+  background-color: teal;
+  margin: 10px;
+  font-family: "White Rabbit";
+}
+
+h1 {
+  color: rgb(255, 176, 0);
+  font-family: "White Rabbit";
+  font-weight: 100;
+  text-align: center;
+  align-self: center;
+}
+
+h2 {
+  color: rgb(255, 176, 0);
+  text-align: center;
+  align-self: center;
+}
+
+
+
+@font-face {
+  font-family: "White Rabbit";
+  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot");
+  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.svg#White Rabbit")
+      format("svg");
+}
+
+@font-face {font-family: "Digital-7"; src: url("//db.onlinewebfonts.com/t/9970a7c5a8076174bff0532c8013a547.eot"); src: url("//db.onlinewebfonts.com/t/9970a7c5a8076174bff0532c8013a547.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/9970a7c5a8076174bff0532c8013a547.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/9970a7c5a8076174bff0532c8013a547.woff") format("woff"), url("//db.onlinewebfonts.com/t/9970a7c5a8076174bff0532c8013a547.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/9970a7c5a8076174bff0532c8013a547.svg#Digital-7") format("svg"); }
+

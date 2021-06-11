@@ -21,13 +21,13 @@ body * {
   position: relative; /* Makes elements display above overlay. */
 }
 
-/* #clock {
+#clock {
   color: crimson;
   font-family: "Libre Barcode 39 Text";
   font-weight: 400;
   font-style: normal;
   line-height: 1;
-} */
+}
 
 .not-done-header {
   
@@ -37,11 +37,9 @@ body * {
   display: flex;
   border: 3px solid cyan;
   width: 70%;
-  margin-top: 7%;
+  margin-top: 5%;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  padding-top: 1%;
-  padding-bottom: 1%;
 }
 
 .not-done {
@@ -56,7 +54,6 @@ body * {
   margin-top: 3%;
   justify-content: space-around;
   align-items: center;
-  overflow: scroll;
 }
 
 .done-container {
@@ -66,7 +63,6 @@ body * {
   margin-top: 3%;
   justify-content: space-around;
   align-items: center;
-  overflow: scroll;
 }
 
 .done {

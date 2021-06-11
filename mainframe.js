@@ -1,14 +1,13 @@
 const input = document.querySelector('input');
 const btn = document.querySelector('.addTask > button');
 
-btn.addEventListener('click', addList);
+btn.addEventListener('click', addList)
 
 function addList(e) {
   const notCompleted = document.querySelector('.not-done');
   const completed = document.querySelector('.done');
 
   const newLi = document.createElement('li');
-
   const checkBtn = document.createElement('button');
   const delBtn = document.createElement('button');
 
@@ -17,7 +16,6 @@ function addList(e) {
 
   if (input.value !== '') {
     newLi.textContent = input.value;
-    input.value = '';
     notCompleted.appendChild(newLi);
     newLi.appendChild(checkBtn);
     newLi.appendChild(delBtn);

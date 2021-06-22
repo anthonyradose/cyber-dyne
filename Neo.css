@@ -1,51 +1,57 @@
 body {
-  background-color: black;
   font-family: "White Rabbit";
-}
-
-.not-done-container {
-  display: flex;
-  justify-content: space-between;
-  border: 3px solid green;
-  margin: 50px 100px;
-}
-
-.not-done-header {
-  display: flex;
-  justify-content: center;
-  /* flex-grow: 1; */
-  width: 50%;
-}
-
-.not-done {
+  background: url("https://images.unsplash.com/photo-1581351123004-757df051db8e?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTJ8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  width: 50%;
-  color: rgb(255, 176, 0);
+  align-items: center;
 }
 
-.done-container {
-  display: flex;
-  justify-content: center;
-  border: 3px solid blueviolet;
-  margin: 50px 100px;
-}
 
 .add-task-container {
   display: flex;
   border: 3px solid cyan;
+  width: 70%;
+  margin-top: 7%;
+  align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  margin-right: 100px;
-  margin-left: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.not-done-container {
+  display: flex;
+  border: 3px solid green;
+  width: 70%;
+  margin-top: 3%;
+  justify-content: space-around;
+  align-items: center;
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+
+.done-container {
+  display: flex;
+  border: 3px solid blueviolet;
+  width: 70%;
+  margin-top: 3%;
+  justify-content: space-around;
+  align-items: center;
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+
+.addTask {
+  display: flex;
+}
+
+.not-done {
+  color: rgb(255, 176, 0);
 }
 
 .done {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
   color: rgb(255, 176, 0);
 }
 
@@ -57,38 +63,28 @@ body {
 input {
   background-color: rgb(0, 0, 0);
   color: crimson;
+  font-family: "White Rabbit";
 }
 
 button {
   background-color: teal;
-  margin: 10px;
+  font-family: "White Rabbit";
 }
 
 h1 {
   color: rgb(255, 176, 0);
   font-family: "White Rabbit";
   font-weight: 100;
-  text-align: center;
-  align-self: center;
+  
 }
 
 h2 {
   color: rgb(255, 176, 0);
-  text-align: center;
-  align-self: center;
 }
 
-@font-face {
-  font-family: "White Rabbit";
-  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot");
-  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.svg#White Rabbit")
-      format("svg");
+@media only screen and (max-width: 280px) and (orientation: portrait) { 
+  .addTask {
+    flex-direction: column;
+  }
 }
+

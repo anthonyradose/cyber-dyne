@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neo's Apartment</title>
+  <link href="//db.onlinewebfonts.com/c/0253e1401c58c5911902cdca02857f0e?family=White+Rabbit" rel="stylesheet" type="text/css"/>
   <link rel="stylesheet" href="Neo.css">
 </head>
 
@@ -13,11 +14,10 @@
 
   <div class="add-task-container">
     <div class="addTask">
-      <input maxlength="50" type="text" placeholder="New Task">
-      <button>Add Task</button>
+      <input maxlength="100" required type="text" placeholder="New Task" size="30">
+      <button class="add-task-btn">Add Task</button>
     </div>
   </div>
-
 
   <div class="not-done-container">
     <h1 class="not-done-header">NOT DONE:</h1>
@@ -25,16 +25,14 @@
     </ul>
   </div>
 
-
-  <footer>
-    <div class="done-container">
-      <h2 class="not-done-header">DONE:</h3>
-      <ul class="done">
-      </ul>
-    </div>
-  </footer>
+  <div class="done-container">
+    <h2 class="not-done-header">DONE:</h3>
+    <ul class="done">
+    </ul>
+  </div>
 
   <script src="mainframe.js"></script>
+
 </body>
 
 </html>

@@ -3,12 +3,32 @@ const btn = document.querySelector(".addTask > button");
 
 let notDoneList = [
   {
-    text: "hack the mainframe tonight...",
+    text: "Surf The Net",
     id: 1,
   },
   {
-    text: "Return X-Files season 2 tapes to Blockbuster",
+    text: "Order Pizza",
     id: 2,
+  },
+  {
+    text: "Prepare for Y2K",
+    id: 3,
+  },
+  {
+    text: "Hack The Mainframe tonight...",
+    id: 4,
+  },
+  {
+    text: "Return movies to Blockbuster",
+    id: 5,
+  },
+  {
+    text: "Buy a Cellphone",
+    id: 6,
+  },
+  {
+    text: "Record X-Files",
+    id: 7,
   },
 ];
 
@@ -27,8 +47,8 @@ function populateList() {
     const checkBtn = document.createElement("button");
     const delBtn = document.createElement("button");
 
-    checkBtn.innerHTML = "done";
-    delBtn.innerHTML = "delete";
+    checkBtn.innerHTML = "Done";
+    delBtn.innerHTML = "Delete";
 
     newListItem.textContent = item.text;
     newListItem.appendChild(checkBtn);

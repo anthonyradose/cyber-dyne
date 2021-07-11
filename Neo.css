@@ -1,6 +1,6 @@
 body {
   display: flex;
-  font-family: "White Rabbit";
+  font-family: 'Courier Prime', monospace;
   background: url("https://images.unsplash.com/photo-1581351123004-757df051db8e?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTJ8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,7 +21,6 @@ body::before {
   background-size: 100% 3px, 4px 100%;
   pointer-events: none;
 }
-
 
 
 
@@ -77,19 +76,21 @@ body::before {
   color: crimson;
   text-align: center;
   text-shadow: 
-  0 0 10px red
+  0 0 7px red
 }
 
 
 input {
   background-color: rgb(0, 0, 0);
   color: crimson;
-  font-family: "White Rabbit";
+  font-family: 'Courier Prime', monospace;
   box-sizing: border-box;
   padding-top: 3%;
   padding-bottom: 3%;
   width: 70%;
+  text-shadow: 0 0 7px red;
 } 
+
 .add-task-btn {
   white-space: nowrap;
   width: 30%;
@@ -100,13 +101,13 @@ input {
 
 button {
   background-color: teal;
-  font-family: "White Rabbit";
+  font-family: 'Courier Prime', monospace;
   margin: 0.7%;
 }
 
 h1 {
   color: rgb(255, 176, 0);
-  font-family: "White Rabbit";
+  font-family: 'Courier Prime', monospace;
   font-weight: 100;
   overflow: auto;
 }

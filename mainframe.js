@@ -74,7 +74,7 @@ function populateList() {
     const newListItem = document.createElement("li");
     const delBtn = document.createElement("button");
 
-    delBtn.innerHTML = "delete";
+    delBtn.innerHTML = "Delete";
 
     newListItem.textContent = item.text;
     newListItem.appendChild(delBtn);

@@ -1,94 +1,196 @@
 body {
-  background-color: black;
-  font-family: "White Rabbit";
-}
-
-.not-done-container {
   display: flex;
-  justify-content: space-between;
-  border: 3px solid green;
-  margin: 50px 100px;
-}
-
-.not-done-header {
-  display: flex;
-  justify-content: center;
-  /* flex-grow: 1; */
-  width: 50%;
-}
-
-.not-done {
-  display: flex;
+  font-family: 'Courier Prime', monospace;
+  background: url("https://images.unsplash.com/photo-1581351123004-757df051db8e?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTJ8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   flex-direction: column;
-  width: 50%;
-  color: rgb(255, 176, 0);
+  align-items: center;
+
 }
 
-.done-container {
-  display: flex;
-  justify-content: center;
-  border: 3px solid blueviolet;
-  margin: 50px 100px;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(17, 17, 17, 0.1) 50%, rgba(13, 13, 13, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.17), rgba(0, 255, 0, 0.13), rgba(0, 0, 255, 0.3));
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
 }
 
+
+
+/* CONTAINERS */
 .add-task-container {
   display: flex;
   border: 3px solid cyan;
+  width: 70%;
+  margin-top: 7%;
   justify-content: center;
-  margin-top: 50px;
-  margin-right: 100px;
-  margin-left: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+}
+.not-done-container {
+  display: flex;
+  border: 3px solid green;
+  width: 70%;
+  margin-top: 3%;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: auto;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  /* white-space: nowrap; */
+}
+.done-container {
+  display: flex;
+  border: 3px solid blueviolet;
+  width: 70%;
+  margin-top: 3%;
+  justify-content: space-around;
+  align-items: center;
+  overflow: auto;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  /* white-space: nowrap; */
 }
 
-.done {
+
+
+.addTask {
   display: flex;
-  flex-direction: column;
-  width: 50%;
-  color: rgb(255, 176, 0);
+  overflow: auto;
+  padding: 1%;
 }
+.not-done {
+  color: #f0fff8;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
+}
+.done {
+  color: #f0fff8;
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0), 0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+}
+
+
+
 
 ::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: crimson;
+  text-align: center;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  
 }
+
 
 input {
   background-color: rgb(0, 0, 0);
   color: crimson;
+  font-family: 'Courier Prime', monospace;
+  box-sizing: border-box;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 70%;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  
+} 
+
+.add-task-btn {
+  white-space: nowrap;
+  width: 30%;
+  margin: 0;
 }
+
+
 
 button {
   background-color: teal;
-  margin: 10px;
+  font-family: 'Courier Prime', monospace;
+  margin: 0.7%;
 }
 
-h1 {
-  color: rgb(255, 176, 0);
-  font-family: "White Rabbit";
+.not-done-header {
+  color: #f0fff8;;
+  font-family: 'Courier Prime', monospace;
   font-weight: 100;
-  text-align: center;
-  align-self: center;
+  overflow: auto;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
+  /* display: inline-table; */
+  padding: 5%;
 }
 
-h2 {
-  color: rgb(255, 176, 0);
-  text-align: center;
-  align-self: center;
+ .done-header {
+  color: #f0fff8;;
+  font-weight: 100;
+  overflow: auto;
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0), 0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+  /* display: inline-table; */
+  padding: 5%;
 }
 
-@font-face {
-  font-family: "White Rabbit";
-  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot");
-  src: url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/0253e1401c58c5911902cdca02857f0e.svg#White Rabbit")
-      format("svg");
+ul {
+  overflow: auto;
+  /* display: inline-table; */
 }
+
+
+
+
+
+
+@media (max-width: 347px) { 
+  .addTask {
+    flex-direction: column;
+    align-items: center;
+  }
+  .add-task-btn {
+    width: 70%;
+    border-style: groove;
+  }
+}
+
+@media (min-width: 348px) and (max-width: 402px) {
+  .add-task-btn {
+    width: 79.9531px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .not-done-container {
+    flex-direction: column;
+  }
+  .done-container {
+    flex-direction: column;
+  }
+}
+
+
+
+/* FONT SIZE CHANGES: */
+/* @media (max-width: 380px) {
+  .add-task-btn {
+    font-size: 0.7rem;
+  }
+} */
+@media (min-width: 381px) {
+  input {
+    font-size: 1rem;
+  }
+  ::placeholder {
+    font-size: 1rem;
+  } 
+} 
+@media (min-width: 1024px) {
+  .not-done-header {
+    font-size: 3rem;
+  }
+  .done-header {
+    font-size: 3rem;
+  }
+  ul {
+    font-size: larger;
+  }
+}
+
+/* This device does not work on Surface Duo when folded */

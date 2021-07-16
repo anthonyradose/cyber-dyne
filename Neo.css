@@ -188,10 +188,9 @@ ul {
   .done-header {
     font-size: 3rem;
   }
-}
-@media (min-width: 1024px) {
   ul {
     font-size: larger;
   }
 }
+
 /* This device does not work on Surface Duo when folded */

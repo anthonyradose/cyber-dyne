@@ -17,7 +17,7 @@ body::before {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(17, 17, 17, 0.1) 50%, rgba(13, 13, 13, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.17), rgba(0, 255, 0, 0.17), rgba(0, 0, 255, 0.17));
+  background: linear-gradient(rgba(17, 17, 17, 0.1) 50%, rgba(13, 13, 13, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.17), rgba(0, 255, 0, 0.13), rgba(0, 0, 255, 0.3));
   background-size: 100% 3px, 4px 100%;
   pointer-events: none;
 }
@@ -41,7 +41,8 @@ body::before {
   align-items: center;
   overflow: auto;
   flex-wrap: wrap;
-  white-space: nowrap;
+  /* flex-direction: column; */
+  /* white-space: nowrap; */
 }
 .done-container {
   display: flex;
@@ -52,7 +53,8 @@ body::before {
   align-items: center;
   overflow: auto;
   flex-wrap: wrap;
-  white-space: nowrap;
+  /* flex-direction: column; */
+  /* white-space: nowrap; */
 }
 
 
@@ -63,10 +65,12 @@ body::before {
   padding: 1%;
 }
 .not-done {
-  color: rgb(255, 176, 0);
+  color: #f0fff8;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
 }
 .done {
-  color: rgb(255, 176, 0);
+  color: #f0fff8;
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0), 0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
 }
 
 
@@ -75,8 +79,8 @@ body::before {
 ::placeholder {
   color: crimson;
   text-align: center;
-  text-shadow: 
-  0 0 7px red
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  
 }
 
 
@@ -88,7 +92,8 @@ input {
   padding-top: 3%;
   padding-bottom: 3%;
   width: 70%;
-  text-shadow: 0 0 7px red;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  
 } 
 
 .add-task-btn {
@@ -105,22 +110,33 @@ button {
   margin: 0.7%;
 }
 
-h1 {
-  color: rgb(255, 176, 0);
+.not-done-header {
+  color: #f0fff8;;
   font-family: 'Courier Prime', monospace;
   font-weight: 100;
   overflow: auto;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
+  /* display: inline-table; */
+  padding: 5%;
 }
 
-h2 {
-  color: rgb(255, 176, 0);
+ .done-header {
+  color: #f0fff8;;
   font-weight: 100;
   overflow: auto;
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0), 0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+  /* display: inline-table; */
+  padding: 5%;
 }
 
 ul {
   overflow: auto;
+  /* display: inline-table; */
 }
+
+
+
+
 
 
 @media (max-width: 347px) { 
@@ -134,14 +150,29 @@ ul {
   }
 }
 
+@media (min-width: 348px) and (max-width: 402px) {
+  .add-task-btn {
+    width: 79.9531px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .not-done-container {
+    flex-direction: column;
+  }
+  .done-container {
+    flex-direction: column;
+  }
+}
+
 
 
 /* FONT SIZE CHANGES: */
-@media (max-width: 380px) {
+/* @media (max-width: 380px) {
   .add-task-btn {
     font-size: 0.7rem;
   }
-}
+} */
 @media (min-width: 381px) {
   input {
     font-size: 1rem;
@@ -151,11 +182,11 @@ ul {
   } 
 } 
 @media (min-width: 1024px) {
-  h1 {
+  .not-done-header {
     font-size: 3rem;
   }
-  h2 {
-    font-size: 2.7rem;
+  .done-header {
+    font-size: 3rem;
   }
 }
 @media (min-width: 1024px) {

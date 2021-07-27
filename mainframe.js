@@ -1,6 +1,7 @@
 const input = document.querySelector("input");
 const btn = document.querySelector(".addTask > button");
-const select = document.querySelector("select");
+const prioritySelect = document.querySelector(".priority-select");
+const prioritySortSelect = document.querySelector(".priority-sort-select");
 
 const PRIORITY = {
   LOW: "LOW",
@@ -82,7 +83,7 @@ function populateList() {
     switch (item.priority) {
       case PRIORITY.LOW:
         textDiv.classList.add("text-priority-low");
-        priorityDiv.textContent =`[Priority: ${PRIORITY.LOW}]`;
+        priorityDiv.textContent = `[Priority: ${PRIORITY.LOW}]`;
         priorityDiv.classList.add("text-priority-low");
         break;
       case PRIORITY.MEDIUM:
@@ -140,7 +141,7 @@ function addToList() {
   if (input.value !== "") {
     notDoneList.push({
       text: input.value,
-      priority: select.value,
+      priority: prioritySelect.value,
       id: notDoneList.length + 1,
     });
 
@@ -149,6 +150,76 @@ function addToList() {
     populateList();
   }
 }
+
+function sortList(value) {
+  if (value === PRIORITY.HIGH) {
+    notDoneList.forEach((item) => {
+      switch (item.priority) {
+        case PRIORITY.HIGH:
+          item.priorityNum = 0;
+          break;
+        case PRIORITY.MEDIUM:
+          item.priorityNum = 1;
+          break;
+        case PRIORITY.LOW:
+          item.priorityNum = 2;
+          break;
+        default:
+          item.priorityNum = 2;
+      }
+    });
+  }
+
+  if (value === PRIORITY.LOW) {
+    notDoneList.forEach((item) => {
+      switch (item.priority) {
+        case PRIORITY.HIGH:
+          item.priorityNum = 2;
+          break;
+        case PRIORITY.MEDIUM:
+          item.priorityNum = 1;
+          break;
+        case PRIORITY.LOW:
+          item.priorityNum = 0;
+          break;
+        default:
+          item.priorityNum = 2;
+      }
+    });
+  }
+
+  if (value === PRIORITY.MEDIUM) {
+    notDoneList.forEach((item) => {
+      switch (item.priority) {
+        case PRIORITY.HIGH:
+          item.priorityNum = 2;
+          break;
+        case PRIORITY.MEDIUM:
+          item.priorityNum = 0;
+          break;
+        case PRIORITY.LOW:
+          item.priorityNum = 1;
+          break;
+        default:
+          item.priorityNum = 1;
+      }
+    });
+  }
+
+  notDoneList.sort((itemA, itemB) => {
+    return itemA.priorityNum - itemB.priorityNum;
+  });
+
+  populateList();
+}
+
+prioritySortSelect.addEventListener(
+  "change",
+  function () {
+    sortList(this.value);
+  },
+  false
+);
 
 btn.addEventListener("click", addToList);
 

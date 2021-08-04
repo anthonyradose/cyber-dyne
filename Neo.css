@@ -1,13 +1,12 @@
 body {
   display: flex;
-  font-family: 'Courier Prime', monospace;
+  font-family: "Courier Prime", monospace;
   background: url("https://images.unsplash.com/photo-1581351123004-757df051db8e?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTJ8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   flex-direction: column;
   align-items: center;
-
 }
 
 body::before {
@@ -17,12 +16,19 @@ body::before {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(17, 17, 17, 0.1) 50%, rgba(13, 13, 13, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.17), rgba(0, 255, 0, 0.13), rgba(0, 0, 255, 0.3));
+  background: linear-gradient(
+      rgba(17, 17, 17, 0.1) 50%,
+      rgba(13, 13, 13, 0.2) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.17),
+      rgba(0, 255, 0, 0.13),
+      rgba(0, 0, 255, 0.3)
+    );
   background-size: 100% 3px, 4px 100%;
   pointer-events: none;
 }
-
-
 
 /* CONTAINERS */
 .add-task-container {
@@ -56,45 +62,76 @@ body::before {
   /* flex-direction: column; */
   /* white-space: nowrap; */
 }
-
-
+.itemContainer {
+  margin-bottom: 16px;
+}
 
 .addTask {
   display: flex;
   overflow: auto;
   padding: 1%;
 }
-.not-done {
-  color: #f0fff8;
-  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
-}
+
 .done {
   color: #f0fff8;
-  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0), 0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
+    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
 }
 
+.text-div {
+  margin-bottom: 4px;
+}
 
+.text-priority-low {
+  color: #f0fff8;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
+    0 0 11px #00ff66;
+  margin-bottom: 4px;
+}
 
+.text-priority-medium {
+  color: #ffd780;
+  text-shadow: 0 0 1px #ffd780, 0 0 3px #ffd780, 0 0 7px #ffd780,
+    0 0 11px #ffd780;
+  margin-bottom: 4px;
+}
+
+.text-priority-high {
+  color: #ffd780;
+  text-shadow: 0 0 1px #ff0000, 0 0 3px #ff0000, 0 0 7px #ff0000,
+    0 0 11px #ff0000;
+  margin-bottom: 4px;
+}
 
 ::placeholder {
   color: crimson;
   text-align: center;
   text-shadow: 0 0 7px red, 0 0 11px red;
-  
 }
-
 
 input {
   background-color: rgb(0, 0, 0);
   color: crimson;
-  font-family: 'Courier Prime', monospace;
+  font-family: "Courier Prime", monospace;
   box-sizing: border-box;
   padding-top: 3%;
   padding-bottom: 3%;
   width: 70%;
   text-shadow: 0 0 7px red, 0 0 11px red;
-  
-} 
+  margin-right: 8px;
+}
+
+.priority-select {
+  background-color: rgb(0, 0, 0);
+  color: crimson;
+  font-family: "Courier Prime", monospace;
+  box-sizing: border-box;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 30%;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  margin-right: 8px;
+}
 
 .add-task-btn {
   white-space: nowrap;
@@ -102,29 +139,29 @@ input {
   margin: 0;
 }
 
-
-
 button {
   background-color: teal;
-  font-family: 'Courier Prime', monospace;
+  font-family: "Courier Prime", monospace;
   margin: 0.7%;
 }
 
 .not-done-header {
-  color: #f0fff8;;
-  font-family: 'Courier Prime', monospace;
+  color: #f0fff8;
+  font-family: "Courier Prime", monospace;
   font-weight: 100;
   overflow: auto;
-  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
+    0 0 11px #00ff66;
   /* display: inline-table; */
   padding: 5%;
 }
 
- .done-header {
-  color: #f0fff8;;
+.done-header {
+  color: #f0fff8;
   font-weight: 100;
   overflow: auto;
-  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0), 0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
+    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
   /* display: inline-table; */
   padding: 5%;
 }
@@ -134,12 +171,7 @@ ul {
   /* display: inline-table; */
 }
 
-
-
-
-
-
-@media (max-width: 347px) { 
+@media (max-width: 347px) {
   .addTask {
     flex-direction: column;
     align-items: center;
@@ -165,8 +197,6 @@ ul {
   }
 }
 
-
-
 /* FONT SIZE CHANGES: */
 /* @media (max-width: 380px) {
   .add-task-btn {
@@ -179,8 +209,8 @@ ul {
   }
   ::placeholder {
     font-size: 1rem;
-  } 
-} 
+  }
+}
 @media (min-width: 1024px) {
   .not-done-header {
     font-size: 3rem;

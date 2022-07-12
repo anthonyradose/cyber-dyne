@@ -128,6 +128,15 @@ function populateList() {
     notCompleted.appendChild(newListItem);
   });
 
+
+
+
+
+
+
+
+
+
   doneList.forEach((item) => {
     const newListItem = document.createElement("li");
     const delBtn = document.createElement("button");
@@ -136,6 +145,9 @@ function populateList() {
 
     newListItem.textContent = item.text;
     newListItem.appendChild(delBtn);
+
+    newListItem.classList.add("newListItem");
+    delBtn.classList.add("delBtn");
 
     // Delete item
     delBtn.addEventListener("click", function () {
@@ -164,6 +176,20 @@ function addToList() {
 btn.addEventListener("click", addToList);
 
 populateList();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function showTime(){

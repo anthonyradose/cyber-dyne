@@ -1,3 +1,5 @@
+
+
 body {
   display: flex;
   font-family: "Courier Prime", monospace;
@@ -7,6 +9,9 @@ body {
   background-attachment: fixed;
   flex-direction: column;
   align-items: center;
+  backdrop-filter: blur(7px);
+  margin: 0;
+  min-height: 100vh;  
 }
 
 body::before {
@@ -20,7 +25,7 @@ body::before {
       rgba(17, 17, 17, 0.1) 50%,
       rgba(13, 13, 13, 0.2) 50%
     ),
-    linear-gradient(
+      linear-gradient(
       90deg,
       rgba(255, 0, 0, 0.17),
       rgba(0, 255, 0, 0.13),
@@ -30,56 +35,86 @@ body::before {
   pointer-events: none;
 }
 
+::marker {
+  color: white;
+}
+
+.clock {
+  margin-top: 3%;
+  color: crimson;
+  /* font-size: 1.7rem; */
+  font-family: Orbitron;
+  letter-spacing: 0.3rem;
+  width: 30%;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  display: flex;
+  justify-content: center;
+}
+
 /* CONTAINERS */
 .add-task-container {
   display: flex;
   border: 3px solid cyan;
   width: 70%;
-  margin-top: 7%;
+  margin-top: 3%;
   justify-content: center;
+  box-sizing: border-box;
 }
 .not-done-container {
   display: flex;
   border: 3px solid green;
   width: 70%;
   margin-top: 3%;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   overflow: auto;
   flex-wrap: wrap;
-  /* flex-direction: column; */
-  /* white-space: nowrap; */
+  align-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 .done-container {
   display: flex;
   border: 3px solid blueviolet;
   width: 70%;
   margin-top: 3%;
-  justify-content: space-around;
+  margin-bottom: 3%;
+  justify-content: center;
   align-items: center;
   overflow: auto;
   flex-wrap: wrap;
-  /* flex-direction: column; */
-  /* white-space: nowrap; */
+  align-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 .itemContainer {
   margin-bottom: 16px;
+  width: 200px;
 }
+
+
+
+
 
 .addTask {
   display: flex;
   overflow: auto;
   padding: 1%;
+  justify-content: center;
 }
 
 .done {
-  color: #f0fff8;
-  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
-    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+  color: white;
+/*   text-shadow: 0 0 1px  #80dfff
+, 0 0 3px deepskyblue,
+    0 0 7px deepskyblue, 0 0 11px deepskyblue	; */
+  text-shadow: 0 0 1px rgb(255 215 128), 0 0 3px rgb(255 176 0), 0 0 7px rgb(255 176 0), 0 0 11px rgb(255 176 0);
+  width: 200px;
 }
 
 .text-div {
   margin-bottom: 4px;
+  word-break: break-word;
 }
 
 .text-priority-low {
@@ -88,18 +123,25 @@ body::before {
     0 0 11px #00ff66;
   margin-bottom: 4px;
 }
-
 .text-priority-medium {
-  color: #ffd780;
-  text-shadow: 0 0 1px #ffd780, 0 0 3px #ffd780, 0 0 7px #ffd780,
-    0 0 11px #ffd780;
+/*   color: #f0fff8;
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
+    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0); */
+  color: #f0fff8;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
+    0 0 11px #00ff66;
   margin-bottom: 4px;
 }
-
 .text-priority-high {
-  color: #ffd780;
-  text-shadow: 0 0 1px #ff0000, 0 0 3px #ff0000, 0 0 7px #ff0000,
-    0 0 11px #ff0000;
+/*   color:         #f0dc82
+;
+  text-shadow: 0 0 1px   #f48a91
+
+, 0 0 3px #EB212E, 0 0 7px #EB212E,
+    0 0 11px #EB212E; */
+  color: #f0fff8;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
+    0 0 11px #00ff66;
   margin-bottom: 4px;
 }
 
@@ -116,9 +158,21 @@ input {
   box-sizing: border-box;
   padding-top: 3%;
   padding-bottom: 3%;
-  width: 70%;
+  width: 30%;
   text-shadow: 0 0 7px red, 0 0 11px red;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin-right: 8px;
+}
+
+.newListItem {
+  word-break: break-word; 
+  margin-bottom: 16px;
+}
+
+.delBtn {
+  display: block;
+  margin-top: 4px;
 }
 
 .priority-select {
@@ -131,19 +185,29 @@ input {
   width: 30%;
   text-shadow: 0 0 7px red, 0 0 11px red;
   margin-right: 8px;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .add-task-btn {
   white-space: nowrap;
+  text-overflow: ellipsis;
   width: 30%;
-  margin: 0;
+  margin-right: 8px;
 }
 
 button {
   background-color: teal;
   font-family: "Courier Prime", monospace;
-  margin: 0.7%;
+  /* margin: 0.7%; */
 }
+
+button.add-task-btn {
+  overflow: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 
 .not-done-header {
   color: #f0fff8;
@@ -153,32 +217,150 @@ button {
   text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
     0 0 11px #00ff66;
   /* display: inline-table; */
-  padding: 5%;
+  /* padding: 1%; */
+  white-space: nowrap;
+  margin-bottom: 16px;
 }
 
 .done-header {
-  color: #f0fff8;
+  color: white;
   font-weight: 100;
   overflow: auto;
   text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
     0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
   /* display: inline-table; */
-  padding: 5%;
+  /* padding: 1%; */
+  margin-bottom: 16px;
 }
 
 ul {
-  overflow: auto;
-  /* display: inline-table; */
+  margin-top: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 212px) {
+  .priority-select {
+    flex-direction: row;
+  }
+  /* ul {
+    padding-left: 20px;
+  }
+  .not-done-header {
+    padding-left: 40px;
+  } */
+}
+
+@media (min-width: 320px) {
+  /* ul {
+    padding-left: 30px;
+  } */
 }
 
 @media (max-width: 347px) {
   .addTask {
     flex-direction: column;
     align-items: center;
+    margin-top: 1%;
   }
   .add-task-btn {
     width: 70%;
-    border-style: groove;
+    margin-top: 2%;
+  }
+  input {
+    width: 70%;
+  }
+  .priority-select {
+    width: 70%;
+    margin-top: 1%;
+    text-indent: 10px;
   }
 }
 
@@ -188,14 +370,130 @@ ul {
   }
 }
 
+@media (min-width: 348px) and (max-width: 495px) {
+  .priority-select {
+    flex-direction: row;
+  }
+}
+
+/* @media (min-width: 348px) {
+  .priority-select {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+} */
+
+@media (min-width: 320px) {
+  .not-done-header {
+    padding-right: 10px;
+  }
+  .done-header {
+    padding-right: 87px;
+  }
+  ul {
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    backdrop-filter: blur(17px);
+  }
+  ul {
+    padding-left: 40px;
+  }
+  .not-done-header {
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+  .done-header {
+    padding-right: 67px;
+  }
+}
+
 @media (min-width: 1024px) {
   .not-done-container {
     flex-direction: column;
   }
+  .not-done-header {
+    padding-left: 60px;
+  }
   .done-container {
     flex-direction: column;
   }
+  .done-header {
+    padding-right: 60px;
+  }
+
+  ul {
+    padding-left: 0px;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* FONT SIZE CHANGES: */
 /* @media (max-width: 380px) {
@@ -203,6 +501,16 @@ ul {
     font-size: 0.7rem;
   }
 } */
+/* @media (max-width: 247px) {
+  .clock {
+    font-size: 13.3333px;
+  }
+} */
+@media (max-width: 347px) {
+  .clock {
+     font-size: 1rem; 
+  }
+}
 @media (min-width: 381px) {
   input {
     font-size: 1rem;
@@ -211,6 +519,12 @@ ul {
     font-size: 1rem;
   }
 }
+@media (min-width: 348px) {
+  .clock {
+    font-size: 1.3rem
+  }
+}
+
 @media (min-width: 1024px) {
   .not-done-header {
     font-size: 3rem;
@@ -221,6 +535,9 @@ ul {
   ul {
     font-size: larger;
   }
+  .clock {
+    font-size: 1.7rem;
+  }
 }
 
-/* This device does not work on Surface Duo when folded */
+ /* This device does not work on Surface Duo when folded  */

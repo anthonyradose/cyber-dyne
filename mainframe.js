@@ -1,7 +1,6 @@
 const input = document.querySelector("input");
 const btn = document.querySelector(".addTask > button");
-const prioritySelect = document.querySelector(".priority-select");
-const prioritySortSelect = document.querySelector(".priority-sort-select");
+const select = document.querySelector("select");
 
 const PRIORITY = {
   LOW: "LOW",
@@ -18,12 +17,13 @@ let notDoneList = [
   {
     text: "Order Pizza",
     id: 2,
-    priority: PRIORITY.MEDIUM,
+    priority: PRIORITY.LOW,
   },
   {
     text: "Prepare for Y2K",
     id: 3,
     priority: PRIORITY.LOW,
+    // blockbuster
   },
   {
     text: "Hack The Mainframe tonight...",
@@ -33,12 +33,12 @@ let notDoneList = [
   {
     text: "Return movies to Blockbuster",
     id: 5,
-    priority: PRIORITY.HIGH,
+    priority: PRIORITY.MEDIUM,
   },
   {
     text: "Buy a Cellphone",
     id: 6,
-    priority: PRIORITY.LOW,
+    priority: PRIORITY.HIGH,
   },
   {
     text: "Record X-Files",
@@ -107,6 +107,14 @@ function populateList() {
       notDoneList = notDoneList.filter((element) => element.id !== item.id);
       doneList.push(item);
       populateList();
+      let d = new Date();
+      let timestamp = d.getTime();
+      const milliseconds = timestamp;
+      const dateObject = new Date(milliseconds);
+      const humanDateFormat = dateObject.toLocaleString("en-GB", {
+        timeZone: "UTC",
+      });
+      console.log(humanDateFormat);
     });
 
     // Delete item
@@ -127,6 +135,9 @@ function populateList() {
     newListItem.textContent = item.text;
     newListItem.appendChild(delBtn);
 
+    newListItem.classList.add("newListItem");
+    delBtn.classList.add("delBtn");
+
     // Delete item
     delBtn.addEventListener("click", function () {
       doneList = doneList.filter((element) => element.id !== item.id);
@@ -141,7 +152,7 @@ function addToList() {
   if (input.value !== "") {
     notDoneList.push({
       text: input.value,
-      priority: prioritySelect.value,
+      priority: select.value,
       id: notDoneList.length + 1,
     });
 
@@ -151,76 +162,24 @@ function addToList() {
   }
 }
 
-function sortList(value) {
-  if (value === PRIORITY.HIGH) {
-    notDoneList.forEach((item) => {
-      switch (item.priority) {
-        case PRIORITY.HIGH:
-          item.priorityNum = 0;
-          break;
-        case PRIORITY.MEDIUM:
-          item.priorityNum = 1;
-          break;
-        case PRIORITY.LOW:
-          item.priorityNum = 2;
-          break;
-        default:
-          item.priorityNum = 2;
-      }
-    });
-  }
-
-  if (value === PRIORITY.LOW) {
-    notDoneList.forEach((item) => {
-      switch (item.priority) {
-        case PRIORITY.HIGH:
-          item.priorityNum = 2;
-          break;
-        case PRIORITY.MEDIUM:
-          item.priorityNum = 1;
-          break;
-        case PRIORITY.LOW:
-          item.priorityNum = 0;
-          break;
-        default:
-          item.priorityNum = 2;
-      }
-    });
-  }
-
-  if (value === PRIORITY.MEDIUM) {
-    notDoneList.forEach((item) => {
-      switch (item.priority) {
-        case PRIORITY.HIGH:
-          item.priorityNum = 2;
-          break;
-        case PRIORITY.MEDIUM:
-          item.priorityNum = 0;
-          break;
-        case PRIORITY.LOW:
-          item.priorityNum = 1;
-          break;
-        default:
-          item.priorityNum = 1;
-      }
-    });
-  }
-
-  notDoneList.sort((itemA, itemB) => {
-    return itemA.priorityNum - itemB.priorityNum;
-  });
-
-  populateList();
-}
-
-prioritySortSelect.addEventListener(
-  "change",
-  function () {
-    sortList(this.value);
-  },
-  false
-);
-
 btn.addEventListener("click", addToList);
 
 populateList();
+
+function showTime() {
+  let date = new Date();
+  let h = date.getHours(); // 0 - 23
+  let m = date.getMinutes(); // 0 - 59
+  let s = date.getSeconds(); // 0 - 59
+
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+
+  let time = h + ":" + m + ":" + s;
+  document.getElementById("MyClockDisplay").innerText = time;
+  document.getElementById("MyClockDisplay").textContent = time;
+
+  setTimeout(showTime, 1000);
+}
+showTime();

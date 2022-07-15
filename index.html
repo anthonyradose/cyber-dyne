@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap"
+      rel="stylesheet"
+    />
+    <link href="http://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet" />
+    <link rel="stylesheet" href="Neo.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Neo.css">
-</head>
+  <body>
+    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
 
-<body>
-      
-  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-  
-  <div class="add-task-container">
-    <div class="addTask">
-      <input maxlength="100" required type="text" placeholder="New Task" size="30">
-      <select name="Priority" class="priority-select">
-        <option value="">-Priority-</option>
-        <option value="HIGH">HIGH</option>
-        <option value="MEDIUM">MEDIUM</option>
-        <option value="LOW">LOW</option>
-      </select>
-      <button class="add-task-btn">Add Task</button>
+    <div class="add-task-container">
+      <div class="add-task-div">
+        <input
+          maxlength="100"
+          required
+          type="text"
+          placeholder="New Task"
+          size="30"
+        />
+        <select name="Priority" class="priority-select">
+          <option value="">-Priority-</option>
+          <option value="HIGH">HIGH</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="LOW">LOW</option>
+        </select>
+        <button class="add-task-btn">Add Task</button>
+      </div>
     </div>
-  </div>
 
-  <div class="not-done-container">
-    <h1 class="not-done-header">NOT DONE:</h1>
-    <ul class="not-done">
-    </ul>
-  </div>
+    <div class="not-done-container">
+      <div class="not-done-div">
+        <p class="not-done-header">NOT DONE:</p>
+        <ul class="not-done"></ul>
+      </div>
+    </div>
 
-  <div class="done-container">
-    <h1 class="done-header">DONE:</h1>
-    <ul class="done">
-    </ul>
-  </div>
+    <div class="done-container">
+      <div class="done-div">
+        <p class="done-header">DONE:</p>
+        <ul class="done"></ul>
+      </div>
+    </div>
 
-  <script src="mainframe.js"></script>
-
-</body>
-
+    <script src="mainframe.js"></script>
+  </body>
 </html>

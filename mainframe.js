@@ -1,5 +1,5 @@
 const input = document.querySelector("input");
-const btn = document.querySelector(".addTask > button");
+const btn = document.querySelector(".add-task-div > button");
 const select = document.querySelector("select");
 
 const PRIORITY = {
@@ -59,8 +59,8 @@ function populateList() {
 
   notDoneList.forEach((item) => {
     const itemContainer = document.createElement("div");
-    const textDiv = document.createElement("div");
-    const priorityDiv = document.createElement("div");
+    const textDiv = document.createElement("div")
+    const priorityDiv = document.createElement("div")
     const newListItem = document.createElement("li");
     const buttonContainer = document.createElement("div");
     const checkBtn = document.createElement("button");
@@ -183,3 +183,4 @@ function showTime() {
   setTimeout(showTime, 1000);
 }
 showTime();
+

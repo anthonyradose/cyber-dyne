@@ -1,4 +1,10 @@
-
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
   display: flex;
@@ -10,10 +16,8 @@ body {
   flex-direction: column;
   align-items: center;
   backdrop-filter: blur(7px);
-  margin: 0;
-  min-height: 100vh;  
+  min-height: 100vh;
 }
-
 body::before {
   content: "";
   position: fixed;
@@ -25,7 +29,7 @@ body::before {
       rgba(17, 17, 17, 0.1) 50%,
       rgba(13, 13, 13, 0.2) 50%
     ),
-      linear-gradient(
+    linear-gradient(
       90deg,
       rgba(255, 0, 0, 0.17),
       rgba(0, 255, 0, 0.13),
@@ -42,13 +46,13 @@ body::before {
 .clock {
   margin-top: 3%;
   color: crimson;
-  /* font-size: 1.7rem; */
-  font-family: Orbitron;
+  font-family: "ds-digital";
   letter-spacing: 0.3rem;
   width: 30%;
   text-shadow: 0 0 7px red, 0 0 11px red;
   display: flex;
   justify-content: center;
+  font-size: 1.5rem;
 }
 
 /* CONTAINERS */
@@ -88,28 +92,44 @@ body::before {
   box-sizing: border-box;
 }
 .itemContainer {
-  margin-bottom: 16px;
-  width: 200px;
+  margin-bottom: 3%;
 }
 
+/* DIVS: */
 
+.not-done-div {
+  width: 70%;
+  /* background: red; */
+  display: flex;
+  margin: 3%;
+  padding: 3%;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.done-div {
+  width: 70%;
+  /* background: blue; */
+  display: flex;
+  margin: 3%;
+  padding: 3%;
+  flex-direction: column;
+  /* align-items: center; */
+}
 
-
-
-.addTask {
+.add-task-div {
   display: flex;
   overflow: auto;
-  padding: 1%;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3%;
+  width: 90%;
 }
 
 .done {
   color: white;
-/*   text-shadow: 0 0 1px  #80dfff
-, 0 0 3px deepskyblue,
-    0 0 7px deepskyblue, 0 0 11px deepskyblue	; */
-  text-shadow: 0 0 1px rgb(255 215 128), 0 0 3px rgb(255 176 0), 0 0 7px rgb(255 176 0), 0 0 11px rgb(255 176 0);
-  width: 200px;
+  text-shadow: 0 0 1px rgb(255 215 128), 0 0 3px rgb(255 176 0),
+    0 0 7px rgb(255 176 0), 0 0 11px rgb(255 176 0);
 }
 
 .text-div {
@@ -124,21 +144,12 @@ body::before {
   margin-bottom: 4px;
 }
 .text-priority-medium {
-/*   color: #f0fff8;
-  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
-    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0); */
   color: #f0fff8;
   text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
     0 0 11px #00ff66;
   margin-bottom: 4px;
 }
 .text-priority-high {
-/*   color:         #f0dc82
-;
-  text-shadow: 0 0 1px   #f48a91
-
-, 0 0 3px #EB212E, 0 0 7px #EB212E,
-    0 0 11px #EB212E; */
   color: #f0fff8;
   text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
     0 0 11px #00ff66;
@@ -149,6 +160,7 @@ body::before {
   color: crimson;
   text-align: center;
   text-shadow: 0 0 7px red, 0 0 11px red;
+  font-size: 1rem;
 }
 
 input {
@@ -156,18 +168,18 @@ input {
   color: crimson;
   font-family: "Courier Prime", monospace;
   box-sizing: border-box;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  width: 30%;
+  margin: 3%;
+  padding: 3%;
+  width: 70%;
   text-shadow: 0 0 7px red, 0 0 11px red;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin-right: 8px;
+  font-size: 1rem;
 }
 
 .newListItem {
-  word-break: break-word; 
-  margin-bottom: 16px;
+  word-break: break-word;
+  margin-bottom: 3%;
 }
 
 .delBtn {
@@ -180,46 +192,45 @@ input {
   color: crimson;
   font-family: "Courier Prime", monospace;
   box-sizing: border-box;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  width: 30%;
+  width: 70%;
   text-shadow: 0 0 7px red, 0 0 11px red;
-  margin-right: 8px;
   text-overflow: ellipsis;
   text-align: center;
+  margin: 3%;
+  padding: 3%;
+  font-size: 1rem;
 }
 
 .add-task-btn {
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 30%;
-  margin-right: 8px;
+  width: 70%;
+  font-size: 1rem;
+  margin: 3%;
+  padding: 3%;
 }
 
 button {
   background-color: teal;
   font-family: "Courier Prime", monospace;
-  /* margin: 0.7%; */
+  cursor: pointer;
 }
 
 button.add-task-btn {
   overflow: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
-
 
 .not-done-header {
   color: #f0fff8;
   font-family: "Courier Prime", monospace;
   font-weight: 100;
+  font-size: 2rem;
   overflow: auto;
   text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
     0 0 11px #00ff66;
-  /* display: inline-table; */
-  /* padding: 1%; */
   white-space: nowrap;
-  margin-bottom: 16px;
+  margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 .done-header {
@@ -228,186 +239,85 @@ button.add-task-btn {
   overflow: auto;
   text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
     0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
-  /* display: inline-table; */
-  /* padding: 1%; */
-  margin-bottom: 16px;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  font-size: 2rem;
 }
 
 ul {
-  margin-top: 16px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  /* background-color: black; */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 212px) {
-  .priority-select {
-    flex-direction: row;
+/* 
+≥992px
+≥1200px
+≥1400px 
+*/
+
+
+@media (min-width: 576px) {
+  .clock {
+    margin-top: 3%;
+    color: crimson;
+    font-family: "ds-digital";
+    letter-spacing: 0.3rem;
+    width: 30%;
+    text-shadow: 0 0 7px red, 0 0 11px red;
+    display: flex;
+    justify-content: center;
+    font-size: 1.7rem;
   }
-  /* ul {
-    padding-left: 20px;
+  .add-task-container {
+    display: flex;
+    border: 3px solid cyan;
+    width: 70%;
+    margin-top: 3%;
+    justify-content: center;
+    box-sizing: border-box;
   }
   .not-done-header {
-    padding-left: 40px;
-  } */
-}
-
-@media (min-width: 320px) {
-  /* ul {
-    padding-left: 30px;
-  } */
-}
-
-@media (max-width: 347px) {
-  .addTask {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1%;
+    color: #f0fff8;
+    font-family: "Courier Prime", monospace;
+    font-weight: 100;
+    font-size: 3rem;
+    overflow: auto;
+    text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
+      0 0 11px #00ff66;
+    white-space: nowrap;
+    margin-bottom: 3%;
+    margin-top: 3%;
   }
-  .add-task-btn {
-    width: 70%;
-    margin-top: 2%;
-  }
-  input {
-    width: 70%;
-  }
-  .priority-select {
-    width: 70%;
-    margin-top: 1%;
-    text-indent: 10px;
-  }
-}
-
-@media (min-width: 348px) and (max-width: 402px) {
-  .add-task-btn {
-    width: 79.9531px;
-  }
-}
-
-@media (min-width: 348px) and (max-width: 495px) {
-  .priority-select {
-    flex-direction: row;
-  }
-}
-
-/* @media (min-width: 348px) {
-  .priority-select {
-    margin-left: 1%;
-    margin-right: 1%;
-  }
-} */
-
-@media (min-width: 320px) {
-  .not-done-header {
-    padding-right: 10px;
-  }
+  
   .done-header {
-    padding-right: 87px;
-  }
-  ul {
-    padding-left: 20px;
+    color: white;
+    font-weight: 100;
+    overflow: auto;
+    text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
+      0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
+    margin-bottom: 3%;
+    margin-top: 3%;
+    font-size: 3rem;
   }
 }
 
 @media (min-width: 768px) {
-  body {
-    backdrop-filter: blur(17px);
+  .add-task-div {
+    flex-direction: row;
+    margin: 3% 0 3% 0;
   }
-  ul {
-    padding-left: 40px;
+  input,
+  .priority-select,
+  .add-task-btn {
+    margin: 0;
   }
-  .not-done-header {
-    padding-left: 10px;
-    padding-right: 0px;
+  input,
+  .priority-select {
+    width: 30%;
   }
-  .done-header {
-    padding-right: 67px;
+  .add-task-btn {
+    width: 30%;
   }
 }
 
@@ -415,129 +325,10 @@ ul {
   .not-done-container {
     flex-direction: column;
   }
-  .not-done-header {
-    padding-left: 60px;
-  }
   .done-container {
     flex-direction: column;
   }
-  .done-header {
-    padding-right: 60px;
-  }
-
-  ul {
-    padding-left: 0px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FONT SIZE CHANGES: */
-/* @media (max-width: 380px) {
-  .add-task-btn {
-    font-size: 0.7rem;
-  }
-} */
-/* @media (max-width: 247px) {
   .clock {
-    font-size: 13.3333px;
-  }
-} */
-@media (max-width: 347px) {
-  .clock {
-     font-size: 1rem; 
+    font-size: 2rem;
   }
 }
-@media (min-width: 381px) {
-  input {
-    font-size: 1rem;
-  }
-  ::placeholder {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 348px) {
-  .clock {
-    font-size: 1.3rem
-  }
-}
-
-@media (min-width: 1024px) {
-  .not-done-header {
-    font-size: 3rem;
-  }
-  .done-header {
-    font-size: 3rem;
-  }
-  ul {
-    font-size: larger;
-  }
-  .clock {
-    font-size: 1.7rem;
-  }
-}
-
- /* This device does not work on Surface Duo when folded  */

@@ -48,7 +48,8 @@ body::before {
 .clock {
   margin-top: 3%;
   color: crimson;
-  font-family: "ds-digital";
+  font-family: "DS-Digital", sans-serif;
+
   letter-spacing: 0.3rem;
   width: 30%;
   text-shadow: 0 0 7px red, 0 0 11px red;

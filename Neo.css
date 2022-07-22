@@ -225,7 +225,6 @@ button.add-task-btn {
   font-family: "Courier Prime", monospace;
   font-weight: 100;
   font-size: 2rem;
-  overflow: auto;
   text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
     0 0 11px #00ff66;
   white-space: nowrap;
@@ -236,7 +235,6 @@ button.add-task-btn {
 .done-header {
   color: white;
   font-weight: 100;
-  overflow: auto;
   text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
     0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
   margin-bottom: 3%;
@@ -256,7 +254,6 @@ ul {
 ≥1400px 
 */
 
-
 @media (min-width: 576px) {
   .clock {
     margin-top: 3%;
@@ -267,7 +264,7 @@ ul {
     text-shadow: 0 0 7px red, 0 0 11px red;
     display: flex;
     justify-content: center;
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
   .add-task-container {
     display: flex;
@@ -289,7 +286,7 @@ ul {
     margin-bottom: 3%;
     margin-top: 3%;
   }
-  
+
   .done-header {
     color: white;
     font-weight: 100;
@@ -321,7 +318,7 @@ ul {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .not-done-container {
     flex-direction: column;
   }
@@ -331,4 +328,15 @@ ul {
   .clock {
     font-size: 2rem;
   }
+  ul,
+  ::placeholder,
+  input,
+  .priority-select,
+  .add-task-btn, button {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1200px) {
+}
+@media (min-width: 1400px) {
 }

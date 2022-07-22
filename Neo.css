@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+@import url("http://fonts.cdnfonts.com/css/ds-digital");
+
 body {
   display: flex;
   font-family: "Courier Prime", monospace;
@@ -332,7 +334,8 @@ ul {
   ::placeholder,
   input,
   .priority-select,
-  .add-task-btn, button {
+  .add-task-btn,
+  button {
     font-size: 1.3rem;
   }
 }

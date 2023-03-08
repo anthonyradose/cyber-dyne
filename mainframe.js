@@ -59,8 +59,8 @@ function populateList() {
 
   notDoneList.forEach((item) => {
     const itemContainer = document.createElement("div");
-    const textDiv = document.createElement("div")
-    const priorityDiv = document.createElement("div")
+    const textDiv = document.createElement("div");
+    const priorityDiv = document.createElement("div");
     const newListItem = document.createElement("li");
     const buttonContainer = document.createElement("div");
     const checkBtn = document.createElement("button");
@@ -105,8 +105,6 @@ function populateList() {
     // Mark item as done
     checkBtn.addEventListener("click", function () {
       notDoneList = notDoneList.filter((element) => element.id !== item.id);
-      doneList.push(item);
-      populateList();
       let d = new Date();
       let timestamp = d.getTime();
       const milliseconds = timestamp;
@@ -114,7 +112,11 @@ function populateList() {
       const humanDateFormat = dateObject.toLocaleString("en-GB", {
         timeZone: "UTC",
       });
-      console.log(humanDateFormat);
+      item.date = humanDateFormat;
+      console.log(item.date);
+      console.log(item);
+      doneList.push(item);
+      populateList();
     });
 
     // Delete item
@@ -132,7 +134,8 @@ function populateList() {
 
     delBtn.innerHTML = "Delete";
 
-    newListItem.textContent = item.text;
+    newListItem.textContent = `${item.text} 
+    [Date of completion: ${item.date}]`;
     newListItem.appendChild(delBtn);
 
     newListItem.classList.add("newListItem");
@@ -183,4 +186,3 @@ function showTime() {
   setTimeout(showTime, 1000);
 }
 showTime();
-

@@ -19,8 +19,6 @@ Visually inspired by 80s/90s pop culture and technology.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [@chrisfarr](https://unsplash.com/@chrisfarr_), (https://unsplash.com/photos/2yQtqBqzDRo)
 * [Ileriayo](https://github.com/Ileriayo), (https://github.com/Ileriayo/markdown-badges)
 * [Keanu Reeves](https://en.wikipedia.org/wiki/Keanu_Reeves)

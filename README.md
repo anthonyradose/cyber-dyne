@@ -14,7 +14,6 @@ Visually inspired by 80s/90s pop culture and technology.
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -27,4 +26,3 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Keanu Reeves](https://en.wikipedia.org/wiki/Keanu_Reeves)
 * [Michael Biehn](https://en.wikipedia.org/wiki/Michael_Biehn)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>

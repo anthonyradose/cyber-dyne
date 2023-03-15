@@ -43,7 +43,8 @@ body::before {
   color: white;
 }
 
-.clock {
+
+#MyClockDisplay {
   margin-top: 3%;
   color: crimson;
   font-family: "DS-Digital", sans-serif;
@@ -252,7 +253,7 @@ ul {
 */
 
 @media (min-width: 576px) {
-  .clock {
+  #MyClockDisplay {
     margin-top: 3%;
     color: crimson;
     font-family: "ds-digital";
@@ -322,7 +323,7 @@ ul {
   .done-container {
     flex-direction: column;
   }
-  .clock {
+  #MyClockDisplay {
     font-size: 2rem;
   }
   ul,

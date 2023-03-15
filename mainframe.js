@@ -113,8 +113,6 @@ function populateList() {
         timeZone: "UTC",
       });
       item.date = humanDateFormat;
-      console.log(item.date);
-      console.log(item);
       doneList.push(item);
       populateList();
     });
@@ -180,7 +178,6 @@ function showTime() {
   s = s < 10 ? "0" + s : s;
 
   let time = h + ":" + m + ":" + s;
-  document.getElementById("MyClockDisplay").innerText = time;
   document.getElementById("MyClockDisplay").textContent = time;
 
   setTimeout(showTime, 1000);

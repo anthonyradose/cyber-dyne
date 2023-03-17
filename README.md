@@ -22,6 +22,8 @@ Visually inspired by 80s/90s pop culture and technology.
 * [@chrisfarr](https://unsplash.com/@chrisfarr_), (https://unsplash.com/photos/2yQtqBqzDRo)
 * [Google Fonts](https://fonts.google.com/)
 * [Alan Dague-Greene](https://fonts.google.com/?query=Alan+Dague-Greene)
+* [CDN Fonts] (https://www.cdnfonts.com/)
+* https://www.cdnfonts.com/ds-digital.font
 * [Keanu Reeves](https://en.wikipedia.org/wiki/Keanu_Reeves)
 * [Michael Biehn](https://en.wikipedia.org/wiki/Michael_Biehn)
 

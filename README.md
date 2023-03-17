@@ -20,7 +20,8 @@ Visually inspired by 80s/90s pop culture and technology.
 ## Acknowledgments
 
 * [@chrisfarr](https://unsplash.com/@chrisfarr_), (https://unsplash.com/photos/2yQtqBqzDRo)
-* [Ileriayo](https://github.com/Ileriayo), (https://github.com/Ileriayo/markdown-badges)
+* [Google Fonts](https://fonts.google.com/)
+* [Alan Dague-Greene](https://fonts.google.com/?query=Alan+Dague-Greene)
 * [Keanu Reeves](https://en.wikipedia.org/wiki/Keanu_Reeves)
 * [Michael Biehn](https://en.wikipedia.org/wiki/Michael_Biehn)
 

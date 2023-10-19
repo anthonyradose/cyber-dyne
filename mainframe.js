@@ -49,6 +49,19 @@ let notDoneList = [
 
 let doneList = [];
 
+function markAsDone(item) {
+  notDoneList = notDoneList.filter((element) => element.id !== item.id);
+  const timestamp = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
+  item.date = timestamp;
+  doneList.push(item);
+}
+
+function deleteItem(item, list) {
+  list = list.filter((element) => element.id !== item.id);
+  return list;
+}
+
+
 function populateList() {
   const notCompleted = document.querySelector(".not-done");
   const completed = document.querySelector(".done");
@@ -104,22 +117,13 @@ function populateList() {
 
     // Mark item as done
     checkBtn.addEventListener("click", function () {
-      notDoneList = notDoneList.filter((element) => element.id !== item.id);
-      let d = new Date();
-      let timestamp = d.getTime();
-      const milliseconds = timestamp;
-      const dateObject = new Date(milliseconds);
-      const humanDateFormat = dateObject.toLocaleString("en-GB", {
-        timeZone: "UTC",
-      });
-      item.date = humanDateFormat;
-      doneList.push(item);
+      markAsDone(item);
       populateList();
     });
 
     // Delete item
     delBtn.addEventListener("click", function () {
-      notDoneList = notDoneList.filter((element) => element.id !== item.id);
+      notDoneList = deleteItem(item, notDoneList);
       populateList();
     });
 
@@ -141,7 +145,7 @@ function populateList() {
 
     // Delete item
     delBtn.addEventListener("click", function () {
-      doneList = doneList.filter((element) => element.id !== item.id);
+      doneList = deleteItem(item, doneList);
       populateList();
     });
 
@@ -156,9 +160,7 @@ function addToList() {
       priority: select.value,
       id: notDoneList.length + 1,
     });
-
     input.value = "";
-
     populateList();
   }
 }

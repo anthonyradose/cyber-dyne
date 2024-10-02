@@ -1,5 +1,5 @@
 const input = document.querySelector("input");
-const btn = document.querySelector(".add-task-div > button");
+const btn = document.querySelector(".addTaskDiv > button");
 const select = document.querySelector("select");
 
 const PRIORITY = {
@@ -23,7 +23,6 @@ let notDoneList = [
     text: "Prepare for Y2K",
     id: 3,
     priority: PRIORITY.LOW,
-    // blockbuster
   },
   {
     text: "Hack The Mainframe tonight...",
@@ -49,111 +48,99 @@ let notDoneList = [
 
 let doneList = [];
 
-function markAsDone(item) {
-  notDoneList = notDoneList.filter((element) => element.id !== item.id);
-  const timestamp = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
-  item.date = timestamp;
+// Function to mark an item as done
+const markAsDone = (item) => {
+  notDoneList = notDoneList.filter(element => element.id !== item.id);
+  item.date = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
   doneList.push(item);
-}
+};
 
-function deleteItem(item, list) {
-  list = list.filter((element) => element.id !== item.id);
-  return list;
-}
+// Function to delete an item from a list
+const deleteItem = (item, list) =>
+  list.filter(element => element.id !== item.id);
 
+// Function to create a list item for both not done and done lists
+const createListItem = (item, isCompleted) => {
+  const newListItem = document.createElement("li");
+  const itemContainer = document.createElement("div");
+  const textDiv = document.createElement("div");
+  const priorityDiv = document.createElement("div");
+  const buttonContainer = document.createElement("div");
 
-function populateList() {
-  const notCompleted = document.querySelector(".not-done");
-  const completed = document.querySelector(".done");
+  textDiv.textContent = item.text;
+  newListItem.appendChild(itemContainer);
+  itemContainer.appendChild(textDiv);
+  itemContainer.appendChild(priorityDiv);
+  itemContainer.classList.add("itemContainer");
+  textDiv.classList.add("textDiv");
 
-  // Clear all items in the lists before rendering the updated lists
-  notCompleted.innerHTML = "";
-  completed.innerHTML = "";
+  // Priority styling logic
+  const priorityClass = `textPriority${item.priority.charAt(0) + item.priority.slice(1).toLowerCase()}`;
+  textDiv.classList.add(priorityClass);
+  priorityDiv.textContent = `[PRIORITY: ${item.priority}]`;
+  priorityDiv.classList.add(priorityClass);
 
-  notDoneList.forEach((item) => {
-    const itemContainer = document.createElement("div");
-    const textDiv = document.createElement("div");
-    const priorityDiv = document.createElement("div");
-    const newListItem = document.createElement("li");
-    const buttonContainer = document.createElement("div");
+  if (!isCompleted) {
+    // If the item is not yet completed, add Done and Delete buttons
     const checkBtn = document.createElement("button");
     const delBtn = document.createElement("button");
+    checkBtn.textContent = "DONE";
+    delBtn.textContent = "DELETE";
 
-    checkBtn.innerHTML = "Done";
-    delBtn.innerHTML = "Delete";
-
-    textDiv.textContent = item.text;
-    newListItem.appendChild(itemContainer);
-    itemContainer.appendChild(textDiv);
-    itemContainer.appendChild(priorityDiv);
-    itemContainer.appendChild(buttonContainer);
     buttonContainer.appendChild(checkBtn);
     buttonContainer.appendChild(delBtn);
+    itemContainer.appendChild(buttonContainer);
 
-    itemContainer.classList.add("itemContainer");
-    textDiv.classList.add("text-div");
-
-    switch (item.priority) {
-      case PRIORITY.LOW:
-        textDiv.classList.add("text-priority-low");
-        priorityDiv.textContent = `[Priority: ${PRIORITY.LOW}]`;
-        priorityDiv.classList.add("text-priority-low");
-        break;
-      case PRIORITY.MEDIUM:
-        textDiv.classList.add("text-priority-medium");
-        priorityDiv.textContent = `[Priority: ${PRIORITY.MEDIUM}]`;
-        priorityDiv.classList.add("text-priority-medium");
-        break;
-      case PRIORITY.HIGH:
-        textDiv.classList.add("text-priority-high");
-        priorityDiv.textContent = `[Priority: ${PRIORITY.HIGH}]`;
-        priorityDiv.classList.add("text-priority-high");
-        break;
-      default:
-        textDiv.classList.add("text-priority-low");
-        priorityDiv.textContent = `[Priority: ${PRIORITY.LOW}]`;
-        priorityDiv.classList.add("text-priority-low");
-    }
-
-    // Mark item as done
-    checkBtn.addEventListener("click", function () {
+    // Event listeners for Done and Delete buttons
+    checkBtn.addEventListener("click", () => {
       markAsDone(item);
       populateList();
     });
 
-    // Delete item
-    delBtn.addEventListener("click", function () {
+    delBtn.addEventListener("click", () => {
       notDoneList = deleteItem(item, notDoneList);
       populateList();
     });
-
-    notCompleted.appendChild(newListItem);
-  });
-
-  doneList.forEach((item) => {
-    const newListItem = document.createElement("li");
+  } else {
+    // If the item is completed, show completion date and delete button
     const delBtn = document.createElement("button");
-
-    delBtn.innerHTML = "Delete";
-
-    newListItem.textContent = `${item.text} 
-    [Date of completion: ${item.date}]`;
+    delBtn.textContent = "DELETE";
+    newListItem.textContent += ` [Date of completion: ${item.date}]`;
     newListItem.appendChild(delBtn);
 
-    newListItem.classList.add("newListItem");
-    delBtn.classList.add("delBtn");
-
-    // Delete item
-    delBtn.addEventListener("click", function () {
+    delBtn.addEventListener("click", () => {
       doneList = deleteItem(item, doneList);
       populateList();
     });
+  }
 
+  return newListItem;
+};
+
+// Function to populate both the not done and done lists
+const populateList = () => {
+  const notCompleted = document.querySelector(".notDoneUl");
+  const completed = document.querySelector(".doneUl");
+
+  // Clear the lists before rendering
+  notCompleted.textContent = "";
+  completed.textContent = "";
+
+  // Populate the not completed list
+  notDoneList.forEach(item => {
+    const newListItem = createListItem(item, false);
+    notCompleted.appendChild(newListItem);
+  });
+
+  // Populate the completed list
+  doneList.forEach(item => {
+    const newListItem = createListItem(item, true);
     completed.appendChild(newListItem);
   });
-}
+};
 
-function addToList() {
+// Function to add a new task to the not done list
+const addToList = () => {
   if (input.value !== "") {
     notDoneList.push({
       text: input.value,
@@ -163,25 +150,22 @@ function addToList() {
     input.value = "";
     populateList();
   }
-}
+};
 
+// Event listener for the add task button
 btn.addEventListener("click", addToList);
 
+// Initial population of the lists
 populateList();
 
-function showTime() {
-  let date = new Date();
-  let h = date.getHours(); // 0 - 23
-  let m = date.getMinutes(); // 0 - 59
-  let s = date.getSeconds(); // 0 - 59
-
-  h = h < 10 ? "0" + h : h;
-  m = m < 10 ? "0" + m : m;
-  s = s < 10 ? "0" + s : s;
-
-  let time = h + ":" + m + ":" + s;
-  document.getElementById("MyClockDisplay").textContent = time;
-
+// Function to display the current time
+const showTime = () => {
+  const date = new Date();
+  const h = date.getHours().toString().padStart(2, "0");
+  const m = date.getMinutes().toString().padStart(2, "0");
+  const s = date.getSeconds().toString().padStart(2, "0");
+  const time = `${h}:${m}:${s}`;
+  document.getElementById("myClockDisplay").textContent = time;
   setTimeout(showTime, 1000);
-}
+};
 showTime();

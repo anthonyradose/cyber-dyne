@@ -43,7 +43,6 @@ body::before {
   color: white;
 }
 
-
 #myClockDisplay {
   margin-top: 3%;
   color: crimson;
@@ -114,7 +113,7 @@ body::before {
   flex-direction: column;
 }
 
-.addTaskDiv {
+.addTaskForm {
   display: flex;
   overflow: auto;
   flex-direction: column;
@@ -256,7 +255,6 @@ ul {
   #myClockDisplay {
     margin-top: 3%;
     color: crimson;
-    font-family: "ds-digital";
     letter-spacing: 0.3rem;
     width: 30%;
     text-shadow: 0 0 7px red, 0 0 11px red;

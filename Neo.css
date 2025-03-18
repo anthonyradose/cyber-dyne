@@ -133,24 +133,10 @@ body::before {
   margin-bottom: 4px;
   word-break: break-word;
 }
-
-.textPriorityLow {
-  color: #f0fff8;
+.notDoneUl {
+  color: white;
   text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
     0 0 11px #00ff66;
-  margin-bottom: 4px;
-}
-.textPriorityMedium {
-  color: #f0fff8;
-  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
-    0 0 11px #00ff66;
-  margin-bottom: 4px;
-}
-.textPriorityHigh {
-  color: #f0fff8;
-  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
-    0 0 11px #00ff66;
-  margin-bottom: 4px;
 }
 
 ::placeholder {
@@ -199,7 +185,7 @@ input {
   font-size: 1rem;
 }
 
-.addTaskBtn {
+.addTaskButton {
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 70%;
@@ -214,7 +200,7 @@ button {
   cursor: pointer;
 }
 
-button.addTaskBtn {
+button.addTaskButton {
   overflow: auto;
 }
 
@@ -302,14 +288,14 @@ ul {
   }
   input,
   .prioritySelect,
-  .addTaskBtn {
+  .addTaskButton {
     margin: 0;
   }
   input,
   .prioritySelect {
     width: 30%;
   }
-  .addTaskBtn {
+  .addTaskButton {
     width: 30%;
   }
 }
@@ -328,7 +314,7 @@ ul {
   ::placeholder,
   input,
   .prioritySelect,
-  .addTaskBtn,
+  .addTaskButton,
   button {
     font-size: 1.3rem;
   }

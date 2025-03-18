@@ -1,172 +1,131 @@
-const input = document.querySelector("input");
-const btn = document.querySelector(".addTaskForm > button");
-const select = document.querySelector("select");
+// DOM elements
+const userInput = document.querySelector(".userInput");
+const addTaskButton = document.querySelector(".addTaskButton");
+const prioritySelect = document.querySelector(".prioritySelect");
 
+// Priority Enum
 const PRIORITY = {
   LOW: "LOW",
   MEDIUM: "MEDIUM",
   HIGH: "HIGH",
 };
 
-let notDoneList = [
-  {
-    text: "Surf The Net",
-    id: 1,
-    priority: PRIORITY.LOW,
-  },
-  {
-    text: "Order Pizza",
-    id: 2,
-    priority: PRIORITY.LOW,
-  },
-  {
-    text: "Prepare for Y2K",
-    id: 3,
-    priority: PRIORITY.LOW,
-  },
-  {
-    text: "Hack The Mainframe tonight...",
-    id: 4,
-    priority: PRIORITY.MEDIUM,
-  },
-  {
-    text: "Return movies to Blockbuster",
-    id: 5,
-    priority: PRIORITY.MEDIUM,
-  },
-  {
-    text: "Buy a Cellphone",
-    id: 6,
-    priority: PRIORITY.HIGH,
-  },
-  {
-    text: "Record X-Files",
-    id: 7,
-    priority: PRIORITY.HIGH,
-  },
-];
-let doneList = [];
-
-// Function to mark an item as done
-const markAsDone = (item) => {
-  notDoneList = deleteItem(item, notDoneList);
-  item.date = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
-  doneList.push(item);
+// App state
+const tasks = {
+  notDoneList: [
+    { text: "Surf The Net", id: 1, priority: PRIORITY.LOW },
+    { text: "Order Pizza", id: 2, priority: PRIORITY.LOW },
+    { text: "Prepare for Y2K", id: 3, priority: PRIORITY.LOW },
+    { text: "Hack The Mainframe tonight...", id: 4, priority: PRIORITY.MEDIUM },
+    { text: "Return movies to Blockbuster", id: 5, priority: PRIORITY.MEDIUM },
+    { text: "Buy a Cellphone", id: 6, priority: PRIORITY.HIGH },
+    { text: "Record X-Files", id: 7, priority: PRIORITY.HIGH },
+  ],
+  doneList: [],
 };
 
-// Function to delete an item from a list
-const deleteItem = (item, list) =>
-  list.filter((element) => element.id !== item.id);
+// Utility functions
+const updateList = (item, list) => list.filter((el) => el.id !== item.id);
 
-// Function to create a list item for both not done and done lists
-const createListItem = (item, isCompleted) => {
-  const newListItem = document.createElement("li");
+// Function to render tasks
+const createTaskItem = (item, isCompleted) => {
+  const listItem = document.createElement("li");
+  listItem.classList.add("task-item");
+  
   const itemContainer = document.createElement("div");
+  itemContainer.classList.add("item-container");
+
   const textDiv = document.createElement("div");
-  const priorityDiv = document.createElement("div");
-  const buttonContainer = document.createElement("div");
-  const checkBtn = document.createElement("button");
-  const delBtn = document.createElement("button");
-
   textDiv.textContent = item.text;
-  newListItem.appendChild(itemContainer);
-  itemContainer.appendChild(textDiv);
-  itemContainer.appendChild(priorityDiv);
-  itemContainer.classList.add("itemContainer");
-  textDiv.classList.add("textDiv");
+  textDiv.classList.add("text");
 
-  // Priority styling logic
-  const priorityClass = `textPriority${
-    item.priority.charAt(0) + item.priority.slice(1).toLowerCase()
-  }`;
-  textDiv.classList.add(priorityClass);
+  const priorityDiv = document.createElement("div");
   priorityDiv.textContent = `[PRIORITY: ${item.priority}]`;
-  priorityDiv.classList.add(priorityClass);
+  priorityDiv.classList.add("priority");
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container");
+
+  const delButton = document.createElement("button");
+  delButton.textContent = "DELETE";
+  delButton.addEventListener("click", () => {
+    if (isCompleted) {
+      tasks.doneList = updateList(item, tasks.doneList);
+    } else {
+      tasks.notDoneList = updateList(item, tasks.notDoneList);
+    }
+    renderLists();
+  });
+
+  buttonContainer.appendChild(delButton);
 
   if (!isCompleted) {
-    // If the item is not yet completed, add Done and Delete buttons
-    checkBtn.textContent = "DONE";
-    delBtn.textContent = "DELETE";
-
-    buttonContainer.appendChild(checkBtn);
-    buttonContainer.appendChild(delBtn);
-    itemContainer.appendChild(buttonContainer);
-
-    // Event listeners for Done and Delete buttons
-    checkBtn.addEventListener("click", () => {
-      markAsDone(item);
-      populateList();
+    const doneButton = document.createElement("button");
+    doneButton.textContent = "DONE";
+    doneButton.addEventListener("click", () => {
+      item.date = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
+      tasks.notDoneList = updateList(item, tasks.notDoneList);
+      tasks.doneList.push(item);
+      renderLists();
     });
-
-    delBtn.addEventListener("click", () => {
-      notDoneList = deleteItem(item, notDoneList);
-      populateList();
-    });
+    buttonContainer.appendChild(doneButton);
   } else {
-    // If the item is completed, show completion date and delete button
-    delBtn.textContent = "DELETE";
-    newListItem.textContent += ` [Date of completion: ${item.date}]`;
-    newListItem.appendChild(delBtn);
-
-    delBtn.addEventListener("click", () => {
-      doneList = deleteItem(item, doneList);
-      populateList();
-    });
+    listItem.textContent += ` [Completed: ${item.date}]`;
   }
 
-  return newListItem;
+  itemContainer.appendChild(textDiv);
+  itemContainer.appendChild(priorityDiv);
+  itemContainer.appendChild(buttonContainer);
+  listItem.appendChild(itemContainer);
+
+  return listItem;
 };
 
-// Function to populate both the not done and done lists
-const populateList = () => {
-  const notCompleted = document.querySelector(".notDoneUl");
-  const completed = document.querySelector(".doneUl");
+// Function to render both lists
+const renderLists = () => {
+  const notDoneContainer = document.querySelector(".notDoneUl");
+  const doneContainer = document.querySelector(".doneUl");
 
-  // Clear the lists before rendering
-  notCompleted.textContent = "";
-  completed.textContent = "";
+  notDoneContainer.textContent = "";
+  doneContainer.textContent = "";
 
-  // Populate the not completed list
-  notDoneList.forEach((item) => {
-    const newListItem = createListItem(item, false);
-    notCompleted.appendChild(newListItem);
+  tasks.notDoneList.forEach((item) => {
+    const taskItem = createTaskItem(item, false);
+    notDoneContainer.appendChild(taskItem);
   });
 
-  // Populate the completed list
-  doneList.forEach((item) => {
-    const newListItem = createListItem(item, true);
-    completed.appendChild(newListItem);
+  tasks.doneList.forEach((item) => {
+    const taskItem = createTaskItem(item, true);
+    doneContainer.appendChild(taskItem);
   });
 };
 
-// Function to add a new task to the not done list
-const addToList = () => {
-  if (input.value !== "") {
-    notDoneList.push({
-      text: input.value,
-      priority: select.value,
-      id: notDoneList.length + 1,
-    });
-    input.value = "";
-    populateList();
+// Function to add new task
+const addTask = () => {
+  if (userInput.value.trim()) {
+    const newTask = {
+      text: userInput.value,
+      id: Date.now(),
+      priority: prioritySelect.value,
+    };
+    tasks.notDoneList.push(newTask);
+    userInput.value = "";
+    renderLists();
   }
 };
 
-// Event listener for the add task button
-btn.addEventListener("click", addToList);
+// Event listener for Add Task button
+addTaskButton.addEventListener("click", addTask);
 
-// Initial population of the lists
-populateList();
+// Initial render
+renderLists();
 
-// Function to display the current time
+// Clock functionality
 const showTime = () => {
   const date = new Date();
-  const h = date.getHours().toString().padStart(2, "0");
-  const m = date.getMinutes().toString().padStart(2, "0");
-  const s = date.getSeconds().toString().padStart(2, "0");
-  const time = `${h}:${m}:${s}`;
+  const time = date.toLocaleTimeString();
   document.getElementById("myClockDisplay").textContent = time;
   setTimeout(showTime, 1000);
 };
+
 showTime();
-window.addEventListener("load", showTime);

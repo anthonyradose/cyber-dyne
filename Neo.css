@@ -1,3 +1,4 @@
+/* GLOBAL RESETS */
 *,
 *:before,
 *:after {
@@ -6,6 +7,7 @@
   box-sizing: border-box;
 }
 
+/* BODY STYLING */
 body {
   display: flex;
   font-family: "Courier Prime", monospace;
@@ -39,10 +41,32 @@ body::before {
   pointer-events: none;
 }
 
+/* GLOBAL ELEMENTS */
 ::marker {
   color: white;
 }
+::placeholder {
+  color: crimson;
+  text-align: center;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  font-size: 1rem;
+}
+input,
+.prioritySelect {
+  background-color: black;
+  color: crimson;
+  font-family: "Courier Prime", monospace;
+  box-sizing: border-box;
+  width: 70%;
+  text-shadow: 0 0 7px red, 0 0 11px red;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin: 3%;
+  padding: 3%;
+  font-size: 1rem;
+}
 
+/* CLOCK DISPLAY */
 #myClockDisplay {
   margin-top: 3%;
   color: crimson;
@@ -56,55 +80,22 @@ body::before {
 }
 
 /* CONTAINERS */
-.addTaskContainer {
-  display: flex;
-  border: 3px solid cyan;
-  width: 70%;
-  margin-top: 3%;
-  justify-content: center;
-  box-sizing: border-box;
-}
-.notDoneContainer {
-  display: flex;
-  border: 3px solid green;
-  width: 70%;
-  margin-top: 3%;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-  flex-wrap: wrap;
-  align-content: center;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+.addTaskContainer,
+.notDoneContainer,
 .doneContainer {
   display: flex;
-  border: 3px solid blueviolet;
   width: 70%;
   margin-top: 3%;
-  margin-bottom: 3%;
   justify-content: center;
-  align-items: center;
-  overflow: auto;
-  flex-wrap: wrap;
-  align-content: center;
-  flex-direction: column;
   box-sizing: border-box;
 }
-.itemContainer {
-  margin-bottom: 3%;
-}
+.addTaskContainer { border: 3px solid cyan; }
+.notDoneContainer { border: 3px solid green; flex-direction: column; }
+.doneContainer { border: 3px solid blueviolet; flex-direction: column; }
+.itemContainer { margin-bottom: 3%; }
 
-/* DIVS: */
-
-.notDoneDiv {
-  width: 70%;
-  display: flex;
-  margin: 3%;
-  padding: 3%;
-  flex-direction: column;
-  /* align-items: center; */
-}
+/* DIVS */
+.notDoneDiv,
 .doneDiv {
   width: 70%;
   display: flex;
@@ -112,79 +103,25 @@ body::before {
   padding: 3%;
   flex-direction: column;
 }
+.textDiv { margin-bottom: 4px; word-break: break-word; }
 
-.addTaskForm {
-  display: flex;
-  overflow: auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 3%;
-  width: 90%;
-}
-
-.doneUl {
+/* LISTS */
+.notDoneUl, .doneUl {
   color: white;
   text-shadow: 0 0 1px rgb(255 215 128), 0 0 3px rgb(255 176 0),
     0 0 7px rgb(255 176 0), 0 0 11px rgb(255 176 0);
 }
-
-.textDiv {
-  margin-bottom: 4px;
-  word-break: break-word;
-}
 .notDoneUl {
-  color: white;
-  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
-    0 0 11px #00ff66;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
 }
+ul { margin-top: 3%; margin-bottom: 3%; }
 
-::placeholder {
-  color: crimson;
-  text-align: center;
-  text-shadow: 0 0 7px red, 0 0 11px red;
-  font-size: 1rem;
-}
-
-input {
-  background-color: rgb(0, 0, 0);
-  color: crimson;
+/* BUTTONS */
+button {
+  background-color: teal;
   font-family: "Courier Prime", monospace;
-  box-sizing: border-box;
-  margin: 3%;
-  padding: 3%;
-  width: 70%;
-  text-shadow: 0 0 7px red, 0 0 11px red;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 1rem;
+  cursor: pointer;
 }
-
-.newListItem {
-  /* word-break: break-word; */
-  margin-bottom: 3%;
-  white-space: pre-line;
-}
-
-.delBtn {
-  display: block;
-  margin-top: 4px;
-}
-
-.prioritySelect {
-  background-color: rgb(0, 0, 0);
-  color: crimson;
-  font-family: "Courier Prime", monospace;
-  box-sizing: border-box;
-  width: 70%;
-  text-shadow: 0 0 7px red, 0 0 11px red;
-  text-overflow: ellipsis;
-  text-align: center;
-  margin: 3%;
-  padding: 3%;
-  font-size: 1rem;
-}
-
 .addTaskButton {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -193,133 +130,38 @@ input {
   margin: 3%;
   padding: 3%;
 }
+button.addTaskButton { overflow: auto; }
 
-button {
-  background-color: teal;
-  font-family: "Courier Prime", monospace;
-  cursor: pointer;
-}
-
-button.addTaskButton {
-  overflow: auto;
-}
-
-.notDoneHeader {
-  color: #f0fff8;
-  font-family: "Courier Prime", monospace;
-  font-weight: 100;
-  font-size: 2rem;
-  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
-    0 0 11px #00ff66;
-  white-space: nowrap;
-  margin-bottom: 3%;
-  margin-top: 3%;
-}
-
-.doneHeader {
+/* HEADERS */
+.notDoneHeader, .doneHeader {
   color: white;
   font-weight: 100;
-  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
-    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
   margin-bottom: 3%;
   margin-top: 3%;
   font-size: 2rem;
 }
-
-ul {
-  margin-top: 3%;
-  margin-bottom: 3%;
+.notDoneHeader {
+  color: #f0fff8;
+  text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66, 0 0 11px #00ff66;
+}
+.doneHeader {
+  text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
+    0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
 }
 
-/* 
-≥992px
-≥1200px
-≥1400px 
-*/
-
+/* MEDIA QUERIES */
 @media (min-width: 576px) {
-  #myClockDisplay {
-    margin-top: 3%;
-    color: crimson;
-    letter-spacing: 0.3rem;
-    width: 30%;
-    text-shadow: 0 0 7px red, 0 0 11px red;
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
-  }
-  .addTaskContainer {
-    display: flex;
-    border: 3px solid cyan;
-    width: 70%;
-    margin-top: 3%;
-    justify-content: center;
-    box-sizing: border-box;
-  }
-  .notDoneHeader {
-    color: #f0fff8;
-    font-family: "Courier Prime", monospace;
-    font-weight: 100;
-    font-size: 3rem;
-    overflow: auto;
-    text-shadow: 0 0 1px #80ffc0, 0 0 3px #00ff66, 0 0 7px #00ff66,
-      0 0 11px #00ff66;
-    white-space: nowrap;
-    margin-bottom: 3%;
-    margin-top: 3%;
-  }
-
-  .doneHeader {
-    color: white;
-    font-weight: 100;
-    overflow: auto;
-    text-shadow: 0 0 1px rgb(255, 215, 128), 0 0 3px rgb(255, 176, 0),
-      0 0 7px rgb(255, 176, 0), 0 0 11px rgb(255, 176, 0);
-    margin-bottom: 3%;
-    margin-top: 3%;
-    font-size: 3rem;
-  }
+  #myClockDisplay { font-size: 2rem; }
+  .notDoneHeader, .doneHeader { font-size: 3rem; overflow: auto; }
 }
-
 @media (min-width: 768px) {
-  .addTaskDiv {
-    flex-direction: row;
-    margin: 3% 0 3% 0;
-  }
-  input,
-  .prioritySelect,
-  .addTaskButton {
-    margin: 0;
-  }
-  input,
-  .prioritySelect {
-    width: 30%;
-  }
-  .addTaskButton {
-    width: 30%;
-  }
+  .addTaskDiv { flex-direction: row; margin: 3% 0; }
+  input, .prioritySelect, .addTaskButton { margin: 0; width: 30%; }
 }
-
 @media (min-width: 992px) {
-  .notDoneContainer {
-    flex-direction: column;
-  }
-  .doneContainer {
-    flex-direction: column;
-  }
-  #myClockDisplay {
-    font-size: 2rem;
-  }
-  ul,
-  ::placeholder,
-  input,
-  .prioritySelect,
-  .addTaskButton,
-  button {
-    font-size: 1.3rem;
-  }
+  .notDoneContainer, .doneContainer { flex-direction: column; }
+  #myClockDisplay { font-size: 2rem; }
+  ul, ::placeholder, input, .prioritySelect, .addTaskButton, button { font-size: 1.3rem; }
 }
-@media (min-width: 1200px) {
-}
-@media (min-width: 1400px) {
-}
+@media (min-width: 1200px) {}
+@media (min-width: 1400px) {}

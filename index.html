@@ -20,7 +20,7 @@
   <body>
     <time id="clock-display"></time>
 
-    <div class="task-container">
+    <main class="task-container">
       <form id="task-form">
         <input
           maxlength="100"
@@ -38,21 +38,21 @@
         </select>
         <button class="add-task-button" type="submit">ADD TASK</button>
       </form>
-    </div>
+    </main>
 
-    <div class="pending-container">
+    <section class="pending-container">
       <div class="pending-section">
-        <p class="pending-header">NOT DONE:</p>
+        <h2 class="pending-header">NOT DONE:</h2>
         <ul id="pending-tasks"></ul>
       </div>
-    </div>
+    </section>
 
-    <div class="completed-container">
+    <section class="completed-container">
       <div class="completed-section">
-        <p class="completed-header">DONE:</p>
+        <h2 class="completed-header">DONE:</h2>
         <ul id="completed-tasks"></ul>
       </div>
-    </div>
+    </section>
 
     <script src="index.js"></script>
   </body>

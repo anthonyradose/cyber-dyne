@@ -14,46 +14,46 @@
       href="https://fonts.cdnfonts.com/css/ds-digital?fbclid=IwAR0XzDNqRuSaH-ShS3qTIXR-Tunx_PLJ1IIW_4I1V0UAJO5LYSd3r3yFvHc"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Neo.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <time id="myClockDisplay"></time>
+    <time id="clock-display"></time>
 
-    <div class="addTaskContainer">
-      <form class="addTaskForm">
+    <div class="task-container">
+      <form id="task-form">
         <input
           maxlength="100"
           required
           type="text"
           placeholder="NEW TASK"
           size="30"
-          class="userInput"
+          class="task-input"
         />
-        <select name="Priority" class="prioritySelect">
+        <select name="Priority" class="priority-select">
           <option value="LOW">-PRIORITY-</option>
           <option value="LOW">LOW</option>
           <option value="MEDIUM">MEDIUM</option>
           <option value="HIGH">HIGH</option>
         </select>
-        <button class="addTaskButton" type="submit">ADD TASK</button>
+        <button class="add-task-button" type="submit">ADD TASK</button>
       </form>
     </div>
 
-    <div class="notDoneContainer">
-      <div class="notDoneDiv">
-        <p class="notDoneHeader">NOT DONE:</p>
-        <ul class="notDoneUl"></ul>
+    <div class="pending-container">
+      <div class="pending-section">
+        <p class="pending-header">NOT DONE:</p>
+        <ul id="pending-tasks"></ul>
       </div>
     </div>
 
-    <div class="doneContainer">
-      <div class="doneDiv">
-        <p class="doneHeader">DONE:</p>
-        <ul class="doneUl"></ul>
+    <div class="completed-container">
+      <div class="completed-section">
+        <p class="completed-header">DONE:</p>
+        <ul id="completed-tasks"></ul>
       </div>
     </div>
 
-    <script src="mainframe.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

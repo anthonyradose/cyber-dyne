@@ -1,16 +1,16 @@
 // DOM elements
-const userInput = document.querySelector(".userInput");
-const addTaskButton = document.querySelector(".addTaskButton");
-const prioritySelect = document.querySelector(".prioritySelect");
+const userInput = document.querySelector(".task-input");
+const addTaskButton = document.querySelector(".add-task-button");
+const prioritySelect = document.querySelector(".priority-select");
 
-// Priority Enum
+// Priority Object
 const PRIORITY = {
   LOW: "LOW",
   MEDIUM: "MEDIUM",
   HIGH: "HIGH",
 };
 
-// App state
+// Initial Tasks
 const tasks = {
   notDoneList: [
     { text: "Surf The Net", id: 1, priority: PRIORITY.LOW },
@@ -33,18 +33,18 @@ const createTaskItem = (item, isCompleted) => {
   listItem.classList.add("task-item");
   
   const itemContainer = document.createElement("div");
-  itemContainer.classList.add("item-container");
+  itemContainer.classList.add("task-item-wrapper");
 
   const textDiv = document.createElement("div");
   textDiv.textContent = item.text;
-  textDiv.classList.add("text");
+  textDiv.classList.add("task-text");
 
   const priorityDiv = document.createElement("div");
   priorityDiv.textContent = `[PRIORITY: ${item.priority}]`;
   priorityDiv.classList.add("priority");
 
   const buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("button-container");
+  buttonContainer.classList.add("task-actions");
 
   const delButton = document.createElement("button");
   delButton.textContent = "DELETE";
@@ -83,8 +83,8 @@ const createTaskItem = (item, isCompleted) => {
 
 // Function to render both lists
 const renderLists = () => {
-  const notDoneContainer = document.querySelector(".notDoneUl");
-  const doneContainer = document.querySelector(".doneUl");
+  const notDoneContainer = document.getElementById("pending-tasks");
+  const doneContainer = document.getElementById("completed-tasks");
 
   notDoneContainer.textContent = "";
   doneContainer.textContent = "";
@@ -124,8 +124,8 @@ renderLists();
 const showTime = () => {
   const date = new Date();
   const time = date.toLocaleTimeString();
-  document.getElementById("myClockDisplay").textContent = time;
+  document.getElementById("clock-display").textContent = time;
   setTimeout(showTime, 1000);
 };
 
-showTime();
+showTime(); 

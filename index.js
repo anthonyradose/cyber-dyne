@@ -1,5 +1,5 @@
 // DOM elements
-const userInput = document.querySelector(".task-input");
+const taskInput = document.querySelector(".task-input");
 const addTaskButton = document.querySelector(".add-task-button");
 const prioritySelect = document.querySelector(".priority-select");
 
@@ -12,7 +12,7 @@ const PRIORITY = {
 
 // Initial Tasks
 const tasks = {
-  notDoneList: [
+  pendingTasks: [
     { text: "Surf The Net", id: 1, priority: PRIORITY.LOW },
     { text: "Order Pizza", id: 2, priority: PRIORITY.LOW },
     { text: "Prepare for Y2K", id: 3, priority: PRIORITY.LOW },
@@ -21,14 +21,14 @@ const tasks = {
     { text: "Buy a Cellphone", id: 6, priority: PRIORITY.HIGH },
     { text: "Record X-Files", id: 7, priority: PRIORITY.HIGH },
   ],
-  doneList: [],
+  completedTasks: [],
 };
 
 // Utility functions
-const updateList = (item, list) => list.filter((el) => el.id !== item.id);
+const removeTaskFromList = (item, list) => list.filter((el) => el.id !== item.id);
 
 // Function to render tasks
-const createTaskItem = (item, isCompleted) => {
+const createTaskElement = (item, isCompleted) => {
   const listItem = document.createElement("li");
   listItem.classList.add("task-item");
   
@@ -50,11 +50,11 @@ const createTaskItem = (item, isCompleted) => {
   delButton.textContent = "DELETE";
   delButton.addEventListener("click", () => {
     if (isCompleted) {
-      tasks.doneList = updateList(item, tasks.doneList);
+      tasks.completedTasks = removeTaskFromList(item, tasks.completedTasks);
     } else {
-      tasks.notDoneList = updateList(item, tasks.notDoneList);
+      tasks.pendingTasks = removeTaskFromList(item, tasks.pendingTasks);
     }
-    renderLists();
+    renderTaskLists();
   });
 
   buttonContainer.appendChild(delButton);
@@ -64,9 +64,9 @@ const createTaskItem = (item, isCompleted) => {
     doneButton.textContent = "DONE";
     doneButton.addEventListener("click", () => {
       item.date = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
-      tasks.notDoneList = updateList(item, tasks.notDoneList);
-      tasks.doneList.push(item);
-      renderLists();
+      tasks.pendingTasks = removeTaskFromList(item, tasks.pendingTasks);
+      tasks.completedTasks.push(item);
+      renderTaskLists();
     });
     buttonContainer.appendChild(doneButton);
   } else {
@@ -82,50 +82,50 @@ const createTaskItem = (item, isCompleted) => {
 };
 
 // Function to render both lists
-const renderLists = () => {
-  const notDoneContainer = document.getElementById("pending-tasks");
-  const doneContainer = document.getElementById("completed-tasks");
+const renderTaskLists = () => {
+  const pendingTasksList = document.getElementById("pending-tasks");
+  const completedTasksList = document.getElementById("completed-tasks");
 
-  notDoneContainer.textContent = "";
-  doneContainer.textContent = "";
+  pendingTasksList.textContent = "";
+  completedTasksList.textContent = "";
 
-  tasks.notDoneList.forEach((item) => {
-    const taskItem = createTaskItem(item, false);
-    notDoneContainer.appendChild(taskItem);
+  tasks.pendingTasks.forEach((item) => {
+    const taskItem = createTaskElement(item, false);
+    pendingTasksList.appendChild(taskItem);
   });
 
-  tasks.doneList.forEach((item) => {
-    const taskItem = createTaskItem(item, true);
-    doneContainer.appendChild(taskItem);
+  tasks.completedTasks.forEach((item) => {
+    const taskItem = createTaskElement(item, true);
+    completedTasksList.appendChild(taskItem);
   });
 };
 
-// Function to add new task
-const addTask = () => {
-  if (userInput.value.trim()) {
+// Function to handle task submission
+const handleTaskSubmit = () => {
+  if (taskInput.value.trim()) {
     const newTask = {
-      text: userInput.value,
+      text: taskInput.value,
       id: Date.now(),
       priority: prioritySelect.value,
     };
-    tasks.notDoneList.push(newTask);
-    userInput.value = "";
-    renderLists();
+    tasks.pendingTasks.push(newTask);
+    taskInput.value = "";
+    renderTaskLists();
   }
 };
 
 // Event listener for Add Task button
-addTaskButton.addEventListener("click", addTask);
+addTaskButton.addEventListener("click", handleTaskSubmit);
 
 // Initial render
-renderLists();
+renderTaskLists();
 
 // Clock functionality
-const showTime = () => {
+const updateClock = () => {
   const date = new Date();
   const time = date.toLocaleTimeString();
   document.getElementById("clock-display").textContent = time;
-  setTimeout(showTime, 1000);
+  setTimeout(updateClock, 1000);
 };
 
-showTime(); 
+updateClock(); 
